@@ -1,3 +1,3 @@
-module github.com/sengine
+module github.com/slow_extract
 
 go 1.20
