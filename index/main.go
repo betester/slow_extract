@@ -149,11 +149,10 @@ func (ii *InvertedIndex) Init(indexName, indexPath string) {
 	}
 
 	indexFile := ii.openIndex()
-	metadata := ii.openMetadata()
 
 	ii.indexFile = indexFile
-	ii.terms = metadata.Terms
-	ii.postingListMap = metadata.PostingListMap
+	ii.terms = make([]uint32, 0) 
+	ii.postingListMap = make(map[uint32][]uint32) 
 }
 
 func (ii *InvertedIndex) Iterator() invertedIndexIterator {
