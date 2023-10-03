@@ -8,7 +8,7 @@ import (
 	"github.com/slow_extract/compressor"
 )
 
-type invertedIndexIterator struct {
+type InvertedIndexIterator struct {
 	Terms []uint32
 	PostingListMap map[uint32][]uint32
 	IndexFile *os.File
@@ -16,11 +16,12 @@ type invertedIndexIterator struct {
 	Decoder compressor.PostingListCompressor
 }
 
-func (iii *invertedIndexIterator) HasNext() bool {
+func (iii *InvertedIndexIterator) HasNext() bool {
 	return iii.Index < len(iii.Terms)
 }
 
-func (iii * invertedIndexIterator) Next() (uint32, []uint32, error) {
+func (iii *InvertedIndexIterator) Current() (uint32, []uint32, error){
+
 	if iii.HasNext() {
 		term := iii.Terms[iii.Index]
 		offset, byteLength := iii.PostingListMap[term][0], iii.PostingListMap[term][2]
@@ -35,11 +36,18 @@ func (iii * invertedIndexIterator) Next() (uint32, []uint32, error) {
 		}
 		decodedPostingList := iii.Decoder.Decode(encodedPostingList)
 
-		iii.Index++
 		return term, decodedPostingList, nil
 	}
+	
 	iii.IndexFile.Close()
-	return 0, nil, fmt.Errorf("end of iterator")
+	return 0, nil, fmt.Errorf("end of iterator") 
+} 
+
+func (iii * InvertedIndexIterator) Next() (uint32, []uint32, error) {
+	term, decodedPostingList, err := iii.Current()
+	iii.Index++
+
+	return term, decodedPostingList, err
 }
 
 type InvertedIndex struct {
@@ -96,7 +104,7 @@ func (ii *InvertedIndex) openIndex() *os.File {
 	log.Println("Index opened")
 	return indexFile
 }
-func (ii *InvertedIndex) writeMetadata() error {
+func (ii *InvertedIndex) WriteMetadata() error {
 	
 	indexMetadataFilePath := fmt.Sprintf("%s/%s.json", ii.indexPath, ii.indexName)
 	metadataFile, err := os.OpenFile(indexMetadataFilePath, os.O_RDWR|os.O_CREATE, 0755)
@@ -140,11 +148,11 @@ func (ii *InvertedIndex) Init(indexName, indexPath string) {
 	ii.postingListMap = make(map[uint32][]uint32) 
 }
 
-func (ii *InvertedIndex) Iterator() invertedIndexIterator {
+func (ii *InvertedIndex) Iterator() InvertedIndexIterator {
 	metadata := ii.openMetadata()
 	ii.indexFile = ii.openIndex()
 
-	return invertedIndexIterator{
+	return InvertedIndexIterator{
 		Terms: metadata.Terms, 
 		PostingListMap: metadata.PostingListMap,
 		Decoder: ii.encoder,
@@ -177,7 +185,7 @@ func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32) error {
 		}
 	}
 
-	ii.writeMetadata()
+	ii.WriteMetadata()
 	ii.indexFile.Close()
 	return nil
 }

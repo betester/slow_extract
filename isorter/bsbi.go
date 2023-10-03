@@ -2,23 +2,26 @@ package isorter
 
 import (
 	"bufio"
+	"container/heap"
 	"fmt"
 	"os"
 	"sort"
 	"strings"
+
 	"github.com/slow_extract/index"
 	"github.com/slow_extract/mapper"
+	"github.com/slow_extract/utils"
 )
 
 type Bsbi struct {
-	TermId mapper.Id
-	FileId mapper.Id
+	TermId    mapper.Id
+	FileId    mapper.Id
 	IndexPath string
 }
 
 func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
 	folderCollection, err := os.Open(collectionPath)
-	
+
 	if err != nil {
 		return err
 	}
@@ -28,36 +31,69 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
 	if err != nil {
 		return err
 	}
-	indexNames := make([]string, 0)
+
+	invertedIndexHeap := index.InitHeap()
+
 	for _, blockPath := range blockPaths {
 
-		invertedIndex, err  := bsbi.parseBlock(collectionPath, blockPath)
+		invertedIndex, err := bsbi.parseBlock(collectionPath, blockPath)
 		if err != nil {
 			return err
 		}
-		indexName := fmt.Sprintf("i-%s",blockPath)
+		indexName := fmt.Sprintf("i-%s", blockPath)
 		indexWriter := index.InvertedIndex{}
 		indexWriter.Init(indexName, bsbi.IndexPath)
-		indexNames = append(indexNames, indexName)
+		invertedIndexHeap.Push(indexWriter.Iterator())
 
 		if err := indexWriter.Write(invertedIndex); err != nil {
 			return err
 		}
 	}
 
-	return mergeIndices(indexNames)
+	return bsbi.mergeIndices(invertedIndexHeap)
 }
 
-func mergeIndices(indices []string) error {
-	return nil	
-}
+func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
+	indexWriter := index.InvertedIndex{}
+	indexWriter.Init("main", bsbi.IndexPath)
 
+	termPostingLists := make([][]uint32, 0)
+	var smallestTerm uint32 = 0
+
+	for {
+		smallestElement := heap.Pop(invertedIndexHeap)
+		switch smallestElement.(type) {
+		case error:
+			indexWriter.CloseIndex()
+			indexWriter.WriteMetadata()
+			return nil
+		}
+
+		smallestIterator := smallestElement.(index.InvertedIndexIterator)
+		nextSmallestTerm, smallestPostingList, err := smallestIterator.Next()
+
+		if err != nil {
+			continue
+		}
+
+		if smallestTerm == nextSmallestTerm {
+			termPostingLists = append(termPostingLists, smallestPostingList)
+		} else {
+			mergedPostingList := utils.MergePostingLists(termPostingLists)
+			indexWriter.WriteIndex(smallestTerm, mergedPostingList)
+			smallestElement = nextSmallestTerm
+		}
+
+		heap.Push(invertedIndexHeap, smallestIterator)
+	}
+
+}
 func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uint32, error) {
 	fullBlockPath := fmt.Sprintf("%s/%s", collectionPath, blockPath)
 	blockFolder, err := os.Open(fullBlockPath)
 	invertedIndex := make(map[uint32][]uint32)
 	tdPairs := make([][]uint32, 0)
-	
+
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +101,7 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 	filePaths, err := blockFolder.Readdirnames(0)
 
 	if err != nil {
-		return nil, err 
+		return nil, err
 	}
 
 	for _, filePath := range filePaths {
@@ -81,11 +117,11 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 
 		for buffer.Scan() {
 			texts := strings.Split(buffer.Text(), " ")
-			
+
 			for _, text := range texts {
 				mappedTerm := bsbi.TermId.ToUint32(text)
 				tdPair := make([]uint32, 2)
-				tdPair[0], tdPair[1] = mappedTerm, mappedFilePath 
+				tdPair[0], tdPair[1] = mappedTerm, mappedFilePath
 				tdPairs = append(tdPairs, tdPair)
 			}
 		}
@@ -104,4 +140,4 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 	}
 
 	return invertedIndex, nil
-} 
+}
