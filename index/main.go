@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-
 	"github.com/slow_extract/compressor"
 )
 
@@ -89,7 +88,7 @@ func (ii *InvertedIndex) openMetadata() invertedIndexMetadata{
 
 func (ii *InvertedIndex) openIndex() *os.File {
 	indexFilePath := fmt.Sprintf("%s/%s.index", ii.indexPath, ii.indexName)
-	indexFile, err := os.OpenFile(indexFilePath, os.O_RDWR|os.O_CREATE, 0755)
+	indexFile, err := os.OpenFile(indexFilePath, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0755)
 
 	if err != nil {
 		log.Fatalln("Failed to open index file")
@@ -97,24 +96,6 @@ func (ii *InvertedIndex) openIndex() *os.File {
 	log.Println("Index opened")
 	return indexFile
 }
-
-func (ii *InvertedIndex) writeIndex(term uint32, postingList []uint32) error {
-	encodedPostingList := ii.encoder.Encode(postingList) 
-
-	if _,err := ii.indexFile.Write(encodedPostingList); err != nil {
-		return err
-	}
-
-	ii.postingListMap[term] = make([]uint32, 0)
-	ii.postingListMap[term] = append(ii.postingListMap[term], ii.currentOffset)
-	ii.postingListMap[term] = append(ii.postingListMap[term], uint32(len(postingList)))
-	ii.postingListMap[term] = append(ii.postingListMap[term], uint32(len(encodedPostingList)))
-	ii.terms = append(ii.terms, term)
-	ii.currentOffset += uint32(len(encodedPostingList))
-	
-	return nil
-}
-
 func (ii *InvertedIndex) writeMetadata() error {
 	
 	indexMetadataFilePath := fmt.Sprintf("%s/%s.json", ii.indexPath, ii.indexName)
@@ -129,6 +110,10 @@ func (ii *InvertedIndex) writeMetadata() error {
 	metadata := invertedIndexMetadata{Terms: ii.terms, PostingListMap: ii.postingListMap}
 	metadataEncoder := json.NewEncoder(metadataFile)
 	return metadataEncoder.Encode(metadata)	
+}
+
+func (ii *InvertedIndex) CloseIndex() error {
+	return ii.indexFile.Close()
 }
 
 func (ii *InvertedIndex) Init(indexName, indexPath string) {
@@ -167,10 +152,27 @@ func (ii *InvertedIndex) Iterator() invertedIndexIterator {
 	}
 } 
 
+func (ii *InvertedIndex) WriteIndex(term uint32, postingList []uint32) error {
+	encodedPostingList := ii.encoder.Encode(postingList) 
+
+	if _,err := ii.indexFile.Write(encodedPostingList); err != nil {
+		return err
+	}
+
+	ii.postingListMap[term] = make([]uint32, 0)
+	ii.postingListMap[term] = append(ii.postingListMap[term], ii.currentOffset)
+	ii.postingListMap[term] = append(ii.postingListMap[term], uint32(len(postingList)))
+	ii.postingListMap[term] = append(ii.postingListMap[term], uint32(len(encodedPostingList)))
+	ii.terms = append(ii.terms, term)
+	ii.currentOffset += uint32(len(encodedPostingList))
+	
+	return nil
+}
+
 func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32) error {
 
 	for term, postingList := range mappedDoc {
-		if err := ii.writeIndex(term, postingList); err != nil {
+		if err := ii.WriteIndex(term, postingList); err != nil {
 			return err
 		}
 	}
