@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sort"
+
 	"github.com/slow_extract/compressor"
 )
 
@@ -68,7 +70,7 @@ type invertedIndexMetadata struct {
 func (ii *InvertedIndex) openMetadata() invertedIndexMetadata{
 
 	indexMetadataFilePath := fmt.Sprintf("%s/%s.json", ii.indexPath, ii.indexName)
-	metadataFile, err := os.OpenFile(indexMetadataFilePath, os.O_RDWR|os.O_CREATE, 0755)
+	metadataFile, err := os.OpenFile(indexMetadataFilePath, os.O_RDWR, 0755)
 
 	if err != nil {
 		log.Fatalln("Failed to open index metadata file")
@@ -94,9 +96,9 @@ func (ii *InvertedIndex) openMetadata() invertedIndexMetadata{
 	return metadata
 }
 
-func (ii *InvertedIndex) openIndex() *os.File {
+func (ii *InvertedIndex) openIndex(mode int) *os.File {
 	indexFilePath := fmt.Sprintf("%s/%s.index", ii.indexPath, ii.indexName)
-	indexFile, err := os.OpenFile(indexFilePath, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0755)
+	indexFile, err := os.OpenFile(indexFilePath, mode, 0755)
 
 	if err != nil {
 		log.Fatalln("Failed to open index file")
@@ -141,18 +143,18 @@ func (ii *InvertedIndex) Init(indexName, indexPath string) {
 		log.Println("Folder created!")
 	}
 
-	indexFile := ii.openIndex()
+	indexFile := ii.openIndex(os.O_RDWR|os.O_CREATE)
 
 	ii.indexFile = indexFile
 	ii.terms = make([]uint32, 0) 
 	ii.postingListMap = make(map[uint32][]uint32) 
 }
 
-func (ii *InvertedIndex) Iterator() InvertedIndexIterator {
+func (ii *InvertedIndex) Iterator() *InvertedIndexIterator {
 	metadata := ii.openMetadata()
-	ii.indexFile = ii.openIndex()
+	ii.indexFile = ii.openIndex(os.O_RDONLY)
 
-	return InvertedIndexIterator{
+	return &InvertedIndexIterator{
 		Terms: metadata.Terms, 
 		PostingListMap: metadata.PostingListMap,
 		Decoder: ii.encoder,
@@ -179,8 +181,18 @@ func (ii *InvertedIndex) WriteIndex(term uint32, postingList []uint32) error {
 
 func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32) error {
 
-	for term, postingList := range mappedDoc {
-		if err := ii.WriteIndex(term, postingList); err != nil {
+	sortedTerm := make([]uint32, 0)
+
+	for term := range mappedDoc {
+		sortedTerm = append(sortedTerm, term)
+	}
+
+	sort.Slice(sortedTerm, func(i, j int) bool {
+		return sortedTerm[i] < sortedTerm[j]	
+	})
+
+	for _, term := range sortedTerm {
+		if err := ii.WriteIndex(term, mappedDoc[term]); err != nil {
 			return err
 		}
 	}

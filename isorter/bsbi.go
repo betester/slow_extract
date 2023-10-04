@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"container/heap"
 	"fmt"
+	"log"
 	"os"
 	"sort"
 	"strings"
@@ -35,6 +36,7 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
 	}
 
 	invertedIndexHeap := index.InitHeap()
+	indicesName := make([]string, 0)
 	var iterationError error = nil
 
 	tqdm.With(Strings(blockPaths), "Iterating Collections", func(v interface{}) (brk bool) {
@@ -46,9 +48,9 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
 			return true
 		}
 		indexName := fmt.Sprintf("i-%s", blockPath)
+		indicesName = append(indicesName, indexName)
 		indexWriter := index.InvertedIndex{}
 		indexWriter.Init(indexName, bsbi.IndexPath)
-		invertedIndexHeap.Push(indexWriter.Iterator())
 
 		if err := indexWriter.Write(invertedIndex); err != nil {
 			iterationError = err
@@ -59,6 +61,14 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
 
 	if iterationError != nil {
 		return iterationError
+	}
+	bsbi.TermId.Save(bsbi.IndexPath, "term")
+	bsbi.FileId.Save(bsbi.IndexPath, "file")
+
+	for _, indexName := range indicesName {
+		indexReader := index.InvertedIndex{}
+		indexReader.Init(indexName, bsbi.IndexPath)
+		invertedIndexHeap.Push(indexReader.Iterator())
 	}
 
 	return bsbi.mergeIndices(invertedIndexHeap)
@@ -80,10 +90,11 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
 			return nil
 		}
 
-		smallestIterator := smallestElement.(index.InvertedIndexIterator)
+		smallestIterator := smallestElement.(*index.InvertedIndexIterator)
 		nextSmallestTerm, smallestPostingList, err := smallestIterator.Next()
-
+		log.Println(nextSmallestTerm)
 		if err != nil {
+			log.Println(err.Error())
 			continue
 		}
 
@@ -98,7 +109,6 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
 		heap.Push(invertedIndexHeap, smallestIterator)
 	}
 }
-
 
 func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uint32, error) {
 	fullBlockPath := fmt.Sprintf("%s/%s", collectionPath, blockPath)
@@ -128,7 +138,6 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 			iterationErr = err
 			return true
 		}
-
 		buffer := bufio.NewScanner(file)
 		mappedFilePath := bsbi.FileId.ToUint32(filePath)
 
@@ -144,15 +153,22 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 		}
 
 		sort.Slice(tdPairs, func(i, j int) bool {
-			return tdPairs[i][1] <= tdPairs[j][1]
+			if tdPairs[i][0] == tdPairs[j][0] {
+				return tdPairs[i][1] < tdPairs[j][1]
+			}
+			return tdPairs[i][0] < tdPairs[j][0]
 		})
+
 
 		for _, tdPair := range tdPairs {
 			if _, ok := invertedIndex[tdPair[0]]; !ok {
 				invertedIndex[tdPair[0]] = make([]uint32, 0)
+				invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
 			}
 
-			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+			if invertedIndex[tdPair[0]][len(invertedIndex[tdPair[0]])-1] < tdPair[1] {
+				invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+			}
 		}
 
 		return

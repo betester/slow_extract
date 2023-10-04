@@ -19,12 +19,17 @@ func (iih InvertedIndexHeap) Less(i, j int) bool {
 }
 
 func (iih InvertedIndexHeap) Swap(i, j int) {
+
+	if iih.Len() == 0 {
+		return
+	} 
+
 	iih[i], iih[j] = iih[j], iih[i]
 }
 
 func (iih *InvertedIndexHeap) Push(x any) {
-	iterator := x.(InvertedIndexIterator)
-	*iih = append(*iih, &iterator)
+	iterator := x.(*InvertedIndexIterator)
+	*iih = append(*iih, iterator)
 }
 
 func (iih *InvertedIndexHeap) Pop() any {
@@ -36,10 +41,10 @@ func (iih *InvertedIndexHeap) Pop() any {
 	old := *iih
 	n := len(*iih) - 1
 	iterator := old[0]
-	old[0] = old[n-1]
-	old[n-1] = nil
-	*iih = old[0 : n-1] 
-	
+	old[0] = old[n]
+	old[n] = nil
+	*iih = old[0 : n] 
+
 	return iterator
 }
 

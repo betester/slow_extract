@@ -2,7 +2,6 @@ package utils
 
 import (
 	"container/heap"
-	"log"
 )
 
 // Define a custom type for the heap elements to hold the value and the list index.
@@ -36,8 +35,6 @@ func MergePostingLists(postingLists [][]uint32) []uint32 {
 	minHeap := make(MinHeap, len(postingLists))
 	result := []uint32{}
 
-	log.Println(postingLists, "posting lists")
-
 	// Initialize the min-heap with the first element from each posting list.
 	for i, list := range postingLists {
 		if len(list) > 0 {
@@ -55,10 +52,10 @@ func MergePostingLists(postingLists [][]uint32) []uint32 {
 		result = append(result, min.value)
 
 		// If there are more elements in the same list, push the next element to the heap.
-		if min.pointer + 1 < len(postingLists[min.index]) {
+		if min.pointer < len(postingLists[min.index]) {
 			heap.Push(&minHeap, HeapNode{value: postingLists[min.index][min.pointer + 1], index: min.index, pointer: min.pointer + 1})
 		}
 	}
-	log.Println(result)
+
 	return result
 }
