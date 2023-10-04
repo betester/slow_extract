@@ -65,14 +65,18 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
 	bsbi.TermId.Save(bsbi.IndexPath, "term")
 	bsbi.FileId.Save(bsbi.IndexPath, "file")
 
+
 	for _, indexName := range indicesName {
 		indexReader := index.InvertedIndex{}
 		indexReader.Init(indexName, bsbi.IndexPath)
 		invertedIndexHeap.Push(indexReader.Iterator())
 	}
 
-	return bsbi.mergeIndices(invertedIndexHeap)
+	err = bsbi.mergeIndices(invertedIndexHeap)
+
+	return err
 }
+
 
 func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
 	indexWriter := index.InvertedIndex{}
@@ -92,7 +96,6 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
 
 		smallestIterator := smallestElement.(*index.InvertedIndexIterator)
 		nextSmallestTerm, smallestPostingList, err := smallestIterator.Next()
-		log.Println(nextSmallestTerm)
 		if err != nil {
 			log.Println(err.Error())
 			continue
@@ -102,7 +105,7 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
 			termPostingLists = append(termPostingLists, smallestPostingList)
 		} else {
 			mergedPostingList := utils.MergePostingLists(termPostingLists)
-			indexWriter.WriteIndex(smallestTerm, mergedPostingList)
+			indexWriter.WriteIndex(nextSmallestTerm, mergedPostingList)
 			smallestElement = nextSmallestTerm
 		}
 
