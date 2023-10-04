@@ -1,0 +1,1 @@
+Anda akan menemukan nomor-nomor ini pada cek yang dikeluarkan untuk rekening Anda. Nomor transit cabang, nomor lembaga keuangan, dan nomor rekening bank terdapat di tepi bawah cek Anda. Nomor transit cabang selalu 5 digit dan nomor lembaga keuangan selalu 3 digit.

@@ -1,0 +1,1 @@
+Blockchain adalah struktur data dengan tiga properti utama: Hampir tidak mungkin untuk diubah. Seharusnya hampir tidak mungkin untuk mengedit data masa lalu yang disimpan dalam blockchain. Sebaliknya, blockchain adalah log tambahan saja. Terdesentralisasi. Tidak ada entitas tunggal yang memiliki kontrol otoritatif atas data apa yang masuk ke blockchain. Didistribusikan.

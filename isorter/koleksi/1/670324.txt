@@ -1,0 +1,1 @@
+definisi SQL. entitas basis data. Definisi entitas basis data: Entitas basis data adalah struktur material atau non-material yang memiliki atributnya sendiri. Contoh entitas basis data: Contoh entitas basis data yang baik dapat berupa tabel sederhana yang berisi kumpulan beberapa data.

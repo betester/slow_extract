@@ -1,0 +1,1 @@
+MIMO (multiple input, multiple output) adalah teknologi antena untuk komunikasi nirkabel di mana banyak antena digunakan baik pada sumber (pemancar) dan tujuan (penerima). Antena di setiap ujung sirkuit komunikasi digabungkan untuk meminimalkan kesalahan dan mengoptimalkan kecepatan data.

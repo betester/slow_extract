@@ -1,0 +1,1 @@
+Jenis peralatan radio. [ 1 182 Suffix] - (A) transponder AIS VHF Kelas A. [ 2 182 Suffix] - (B) AIS VHF transponder Kelas B. [ 3 182 Suffix] - (D) VHF radiotelephone / DSC / GMDSS kompatibel. [ 182 Suffix] - (G) VHF EPIRB 1 / DSC bebas apung. [182 Suffix] - (G) VHF radiotelephone / DSC / GMDSS compliant.

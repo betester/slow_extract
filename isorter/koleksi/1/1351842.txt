@@ -1,0 +1,1 @@
+Dikembangkan oleh NWS dan EPA, Indeks UV memprediksi tingkat radiasi ultraviolet setiap hari pada skala sederhana 1 hingga 11+. Selain menerbitkan Indeks UV setiap hari, EPA juga mengeluarkan Peringatan UV ketika tingkat radiasi UV matahari hari itu diperkirakan akan sangat tinggi. Rekomendasi Perlindungan UV.

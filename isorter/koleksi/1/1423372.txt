@@ -1,0 +1,1 @@
+Apa yang merupakan penggunaan yang tepat dari model pengecualian Java telah menjadi bahan perdebatan yang cukup besar. Java bukanlah bahasa pertama yang mendukung semantik seperti pengecualian; namun, itu adalah bahasa pertama di mana kompilator memberlakukan aturan yang mengatur bagaimana pengecualian tertentu dideklarasikan dan diperlakukan.

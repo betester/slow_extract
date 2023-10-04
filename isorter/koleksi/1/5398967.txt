@@ -1,0 +1,1 @@
+Beberapa kontrol ActiveX tidak akan dinonaktifkan oleh ActiveX Opt-in. 1 Kontrol yang biasa digunakan dan yang dirancang dengan pengawasan keamanan tidak akan dinonaktifkan. Kontrol ini akan muncul pada daftar yang telah disetujui sebelumnya. 2 Kontrol yang digunakan di Internet Explorer sebelum memutakhirkan ke Internet Explorer 8.

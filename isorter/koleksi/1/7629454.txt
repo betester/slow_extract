@@ -1,0 +1,1 @@
+File gambar disk yang dibuat oleh berbagai aplikasi pencitraan disk, seperti CloneCD SlySoft; menyimpan salinan data yang tepat pada CD atau DVD dan digunakan untuk membuat cadangan dan membakar disk baru. File IMG yang dibuat oleh program pencitraan disk yang berbeda mungkin menggunakan format yang berbeda.

@@ -1,0 +1,1 @@
+500+ Warna. Halaman ini mencantumkan lebih dari 500 warna berdasarkan nama warna, nilai Hex, nilai RGB, dan nomor kode Microsoft Access. Anda tidak dapat menentukan warna ini dalam HTML dan CSS dengan nama warnanya tetapi Anda dapat menggunakan nilai heksadesimal RGB, misalnya:

@@ -1,0 +1,1 @@
+Menguji Termostat. Dengan tangki dingin, nyalakan daya ke pemanas air dan ukur tegangan dari termostat atas ke elemen atas, seharusnya terbaca 240-Volt. Periksa daya yang diumpankan ke termostat dan elemen bawah, dalam hal ini harus membaca 0-Volt.

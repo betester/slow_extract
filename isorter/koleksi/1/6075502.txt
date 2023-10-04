@@ -1,0 +1,1 @@
+Siklus Krebs menghasilkan apa? Siklus Krebs menghasilkan NADH dan FADH2 yang merupakan donor elektron yang mendonorkan elektron ke dalam rantai transpor elektron, yang pada akhirnya akan dihasilkan ATP. tidak, NAD+/NADH dan FAD/FADH2 dan NADP+/NADPH adalah pembawa elektron, koenzim A tidak.

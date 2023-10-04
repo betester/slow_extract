@@ -1,0 +1,1 @@
+Stasiun FM ini memiliki deviasi maksimum 75 kHz dari frekuensi tengah, yang menyisakan 25 kHz pita pelindung atas dan bawah untuk meminimalkan interaksi dengan pita frekuensi yang berdekatan. Saluran televisi memiliki pemisahan 5 MHz. Rentang frekuensi untuk telepon seluler adalah 824.040 - 848.970 MHz.

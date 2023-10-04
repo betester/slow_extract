@@ -1,0 +1,1 @@
+Kedalaman warna. (Dialihkan dari True Color) Kedalaman warna atau kedalaman warna (lihat perbedaan ejaan), juga dikenal sebagai kedalaman bit, adalah jumlah bit yang digunakan untuk menunjukkan warna satu piksel, dalam buffer bingkai gambar atau video yang dipetakan, atau jumlah bit yang digunakan untuk setiap komponen warna dari satu piksel.

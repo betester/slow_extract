@@ -1,0 +1,1 @@
+Apa perbedaan antara ilmu komputer dan perangkat keras komputer? Ilmu komputer adalah studi tentang komputer (khususnya perangkat lunak). Perangkat keras komputer adalah bagian fisik dari komputer.

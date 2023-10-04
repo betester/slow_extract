@@ -1,0 +1,1 @@
+Gaya Kontrol Tab. Anda dapat menerapkan karakteristik tertentu ke kontrol tab dengan menentukan gaya kontrol tab saat kontrol dibuat. Misalnya, Anda dapat menentukan perataan dan tampilan umum tab di kontrol tab. Anda dapat membuat tab terlihat seperti tombol dengan menentukan gaya TCS_BUTTONS.

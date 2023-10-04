@@ -1,0 +1,1 @@
+Konversi Banyak URL menjadi Tautan. Tempelkan URL Anda di kotak di bawah ini, lalu klik tombolnya. URL akan muncul sebagai kode tautan di kotak di bagian bawah halaman. URL saya berada di baris terpisah. URL saya dipisahkan dengan koma.

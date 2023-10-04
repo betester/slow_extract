@@ -1,0 +1,1 @@
+Kalimat di mana tanda kurung dimasukkan juga memiliki tanda bacanya. Itu harus diakhiri dengan titik atau tanda tanya, di luar tanda kurung, meskipun tanda kurung berada di akhir kalimat itu.

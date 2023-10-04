@@ -1,0 +1,1 @@
+Untuk melindungi router Anda sendiri (akses panel kontrol web): - Jangan izinkan koneksi nirkabel ke panel kontrol web. - Konfigurasikan nama pengguna dan kata sandi khusus untuk panel kontrol web.

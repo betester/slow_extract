@@ -1,0 +1,1 @@
+Saat ini, ada cukup banyak tiga bentuk otentikasi yang umum digunakan di web: Otentikasi satu faktor, misalnya: PIN atau kata sandi. Otentikasi dua faktor, misalnya: Satu faktor plus kode token yang dihasilkan perangkat lunak atau perangkat keras, atau kartu pintar. Otentikasi dua langkah, misalnya: Faktor tunggal ditambah kode yang dikirim ke pengguna di luar pita.

@@ -1,0 +1,1 @@
+q = q el q vib q rot q trans (3.5) Fungsi partisi molekul q ditulis sebagai produk dari fungsi elektronik, vibrasi, rotasi dan partisi. Fungsi partisi adalah jumlah atas keadaan (tentu saja dengan faktor Boltzmann . mengalikan energi dalam eksponen) dan merupakan angka. Semakin besar nilai q, semakin besar. jumlah keadaan yang tersedia untuk ditempati oleh sistem molekuler.

@@ -1,0 +1,1 @@
+Luas permukaan Piramida Persegi Panjang (SA) = lb + l s1 + b s2. 'l' adalah panjang, 'b' adalah lebar. s1 adalah panjang kemiringan segitiga dengan alas 'l'. s2 adalah panjang kemiringan segitiga dengan alas 'b'. Contoh: Hitunglah luas permukaan limas segi empat yang alasnya 12x8 m dan tinggi miringnya 10m dan 12 m.

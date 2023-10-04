@@ -1,0 +1,1 @@
+Sebagai bagian dari pemeliharaan data, Anda memasukkan biaya tertunda untuk item yang dibeli, menghitung biaya tertunda untuk item yang diproduksi, dan mengaktifkan catatan biaya tertunda. Saat catatan biaya tertunda diaktifkan, status catatan diubah dari tertunda menjadi aktif, dan tanggal efektif diubah menjadi tanggal aktivasi.

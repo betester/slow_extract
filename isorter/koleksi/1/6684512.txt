@@ -1,0 +1,1 @@
+Halaman: 362. Virtualisasi, cloud, container, otomatisasi server, dan jaringan yang ditentukan perangkat lunak dimaksudkan untuk menyederhanakan operasi TI. Tetapi banyak organisasi yang mengadopsi teknologi ini telah menemukan bahwa itu hanya mengarah pada penyebaran sistem yang tidak dapat dikelola yang tumbuh lebih cepat. Di sinilah infrastruktur sebagai kode dapat membantu.

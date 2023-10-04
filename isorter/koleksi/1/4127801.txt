@@ -1,0 +1,1 @@
+) Alamat tetap dalam memori. Istilah absolut membedakannya dari alamat relatif, yang menunjukkan lokasi dengan menentukan jarak dari lokasi lain. Alamat absolut juga disebut alamat nyata dan alamat mesin.

@@ -22,17 +22,17 @@ type Bsbi struct {
 	IndexPath string
 }
 
-func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
+func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) (*index.InvertedIndexIterator, error) {
 	folderCollection, err := os.Open(collectionPath)
 
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	blockPaths, err := folderCollection.Readdirnames(0)
 
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	invertedIndexHeap := index.InitHeap()
@@ -60,25 +60,29 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) error {
 	})
 
 	if iterationError != nil {
-		return iterationError
+		return nil, iterationError
 	}
 	bsbi.TermId.Save(bsbi.IndexPath, "term")
 	bsbi.FileId.Save(bsbi.IndexPath, "file")
-
+	indicesReader := make([]*index.InvertedIndex, 0)
 
 	for _, indexName := range indicesName {
 		indexReader := index.InvertedIndex{}
+		indicesReader = append(indicesReader, &indexReader)
 		indexReader.Init(indexName, bsbi.IndexPath)
 		invertedIndexHeap.Push(indexReader.Iterator())
 	}
-
-	err = bsbi.mergeIndices(invertedIndexHeap)
-
-	return err
+	defer bsbi.deleteIndices(indicesReader)
+	return bsbi.mergeIndices(invertedIndexHeap) 
 }
 
+func (bsbi *Bsbi) deleteIndices(indices []*index.InvertedIndex) {
+	for _, ii := range indices {
+		ii.Delete()
+	}
+}
 
-func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
+func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.InvertedIndexIterator, error) {
 	indexWriter := index.InvertedIndex{}
 	indexWriter.Init("main", bsbi.IndexPath)
 
@@ -91,13 +95,14 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) error {
 		case error:
 			indexWriter.CloseIndex()
 			indexWriter.WriteMetadata()
-			return nil
+			return indexWriter.Iterator(), nil 
 		}
 
 		smallestIterator := smallestElement.(*index.InvertedIndexIterator)
 		nextSmallestTerm, smallestPostingList, err := smallestIterator.Next()
 		if err != nil {
 			log.Println(err.Error())
+			smallestIterator.IndexFile.Close()
 			continue
 		}
 
@@ -123,23 +128,23 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 		return nil, err
 	}
 
+	defer blockFolder.Close()
+
 	filePaths, err := blockFolder.Readdirnames(0)
 
 	if err != nil {
 		return nil, err
 	}
 
-	var iterationErr error = nil
-
 	tqdm.With(Strings(filePaths), "Iterating text files", func(v interface{}) (brk bool) {
 
 		filePath := v.(string)
 		fullFilePath := fmt.Sprintf("%s/%s", fullBlockPath, filePath)
 		file, err := os.OpenFile(fullFilePath, os.O_RDONLY, 0755)
-
 		if err != nil {
-			iterationErr = err
-			return true
+			log.Println(err)
+			file.Close()
+			return
 		}
 		buffer := bufio.NewScanner(file)
 		mappedFilePath := bsbi.FileId.ToUint32(filePath)
@@ -155,30 +160,27 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 			}
 		}
 
-		sort.Slice(tdPairs, func(i, j int) bool {
-			if tdPairs[i][0] == tdPairs[j][0] {
-				return tdPairs[i][1] < tdPairs[j][1]
-			}
-			return tdPairs[i][0] < tdPairs[j][0]
-		})
-
-
-		for _, tdPair := range tdPairs {
-			if _, ok := invertedIndex[tdPair[0]]; !ok {
-				invertedIndex[tdPair[0]] = make([]uint32, 0)
-				invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
-			}
-
-			if invertedIndex[tdPair[0]][len(invertedIndex[tdPair[0]])-1] < tdPair[1] {
-				invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
-			}
-		}
+		file.Close()
 
 		return
 	})
 
-	if iterationErr != nil {
-		return nil, iterationErr
+	sort.Slice(tdPairs, func(i, j int) bool {
+		if tdPairs[i][0] == tdPairs[j][0] {
+			return tdPairs[i][1] < tdPairs[j][1]
+		}
+		return tdPairs[i][0] < tdPairs[j][0]
+	})
+
+	for _, tdPair := range tdPairs {
+		if _, ok := invertedIndex[tdPair[0]]; !ok {
+			invertedIndex[tdPair[0]] = make([]uint32, 0)
+			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+		}
+
+		if invertedIndex[tdPair[0]][len(invertedIndex[tdPair[0]])-1] < tdPair[1] {
+			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+		}
 	}
 
 	return invertedIndex, nil

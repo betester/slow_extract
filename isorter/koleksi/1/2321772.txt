@@ -1,0 +1,1 @@
+Dasar dan soket bola lampu G atau Bi-pin. Jenis lampu dan bohlam dasar G digunakan untuk menunjukkan alas yang disematkan. Ini dapat mencakup beberapa jenis pin dan jumlah pin yang berbeda. Penunjukan dengan huruf-angka-huruf opsional: Huruf pertama termasuk G diikuti dengan opsional U, X, Y atau Z.

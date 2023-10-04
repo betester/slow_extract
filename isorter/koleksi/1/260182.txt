@@ -1,0 +1,1 @@
+Dengan email, penerima pesan ditentukan menggunakan alamat di salah satu dari tiga bidang berikut: 1 Kepada: penerima utama. 2 CC: salinan karbon ke penerima sekunder (pihak lain yang berkepentingan) BCC: salinan karbon buta ke penerima tersier yang menerima pesan.

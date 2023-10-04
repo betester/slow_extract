@@ -1,0 +1,1 @@
+Hybrid IaaS Cloud: A hybrid cloud umumnya dianggap sebagai penggabungan infrastruktur fisik dan virtual di cloud publik atau pribadi. Misalnya, perusahaan dapat memilih untuk mengelola beberapa server fisik di cloud pribadi, sementara mengalihdayakan server lain ke cloud publik.

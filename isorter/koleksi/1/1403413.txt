@@ -1,0 +1,1 @@
+Ini berisi header file dan piksel bitmap, masing-masing dengan warna yang berbeda. File BMP mungkin berisi tingkat kedalaman warna yang berbeda per piksel, tergantung pada jumlah bit per piksel yang ditentukan dalam header file.

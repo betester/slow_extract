@@ -1,0 +1,1 @@
+Perbedaan antara kB dan kb, MB dan Mb . kb adalah kilobit dan kB adalah kilobyte. Sementara MB adalah megabyte, Mb mengacu pada Megabit. 1 byte memiliki 8 bit. Ukuran file biasanya dinyatakan dalam KB dan MB sedangkan kb dan Mb sering digunakan untuk menyatakan kecepatan transfer data (seperti router nirkabel 54 Mbps atau kecepatan koneksi 3G atau 4G).

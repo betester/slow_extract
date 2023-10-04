@@ -1,0 +1,1 @@
+lampu tetap menyala ketika sakelar dalam posisi mati. Ada fotosel di setiap lampu ada 3 lampu masing-masing di tiang terpisah. Ada kabel hitam, putih, dan arde di dalam kotak dan saya memasangnya kembali persis seperti saat saya melepasnya. Ini bukan saklar tiga arah.

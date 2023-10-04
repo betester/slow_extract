@@ -1,0 +1,1 @@
+Dari sudut pandang aplikasi, TCP mentransfer aliran byte yang berdekatan. TCP melakukan ini dengan mengelompokkan byte dalam segmen TCP, yang diteruskan ke IP untuk ditransmisikan ke tujuan. TCP sendiri memutuskan bagaimana mengelompokkan data dan mungkin meneruskan data sesuai keinginannya sendiri.

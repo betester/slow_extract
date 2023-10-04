@@ -1,0 +1,1 @@
+4. Saya memiliki rumus dalam sel yang menghitung nilai dalam 2 sel lainnya. Biasanya, setelah memasukkan nilai dalam 2 sel lain ini, sel rumus diperbarui secara otomatis saat. ditekan atau ketika sel diklik keluar. Namun, untuk beberapa alasan, nilai yang dihitung oleh rumus tidak diperbarui secara otomatis.

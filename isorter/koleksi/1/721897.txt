@@ -1,0 +1,1 @@
+Kota New York terdiri dari lima borough. Negara Bagian New York terdiri dari county. Setiap borough Kota juga merupakan county Negara Bagian. 1 Manhattan - Kabupaten New York. 2 Bronx - Kabupaten Bronx. Brooklyn - Kings County.

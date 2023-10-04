@@ -1,0 +1,1 @@
+Dokumentasi arsitektur (juga dikenal sebagai deskripsi arsitektur perangkat lunak) adalah jenis khusus dari dokumen desain. Di satu sisi, dokumen arsitektur adalah turunan ketiga dari kode (dokumen desain menjadi turunan kedua, dan dokumen kode menjadi yang pertama).

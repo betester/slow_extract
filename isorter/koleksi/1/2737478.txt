@@ -1,0 +1,1 @@
+Idealnya, TCP/IP digunakan setiap kali komputer berbasis Windows berkomunikasi melalui jaringan. Subjek ini menjelaskan komponen TCP/IP Protocol Suite, arsitektur protokol, fungsi yang dilakukan TCP/IP, bagaimana alamat terstruktur dan ditetapkan, dan bagaimana paket disusun dan dirutekan.

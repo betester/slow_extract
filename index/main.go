@@ -162,6 +162,13 @@ func (ii *InvertedIndex) Iterator() *InvertedIndexIterator {
 	}
 } 
 
+func (ii *InvertedIndex) Delete() error {
+	indexFilePath := fmt.Sprintf("%s/%s.index", ii.indexPath, ii.indexName)
+	metedataFilePath := fmt.Sprintf("%s/%s.json", ii.indexPath, ii.indexName)
+	os.Remove(metedataFilePath)
+	return os.Remove(indexFilePath)
+}
+
 func (ii *InvertedIndex) WriteIndex(term uint32, postingList []uint32) error {
 	encodedPostingList := ii.encoder.Encode(postingList) 
 

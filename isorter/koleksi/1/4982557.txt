@@ -1,0 +1,1 @@
+1 Juga telepon IP avaya menggunakan opsi 66 (nama server TFTP) bukan opsi 150 (alamat IP server TFTP) sehingga telepon IP harus menyelesaikan server TFTP (IP OFFICE). Juga telepon IP avaya menggunakan opsi 66 (nama server TFTP) bukan opsi 150 (alamat IP server TFTP) sehingga telepon IP harus menyelesaikan server TFTP (IP OFFICE).

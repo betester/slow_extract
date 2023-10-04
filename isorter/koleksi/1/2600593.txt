@@ -1,0 +1,1 @@
+Rumus empiris xn (n=1,2,3) Mencari rumus molekul suatu senyawa dari rumus empiris. Anda perlu mengetahui massa molar senyawa (massa molar adalah kelipatan bilangan bulat dari rumus empiris massa molar, jumlah massa semua atom dalam rumus empiris. Nilai n akan sama sehingga kita dapat menemukan n dengan menghitung rasio massa molar dengan rumus empiris massa molar)

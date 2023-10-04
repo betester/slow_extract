@@ -1,0 +1,1 @@
+Ada dua definisi pesta minuman keras: 1 Seseorang dikatakan pesta minuman keras jika mereka minum lebih dari 5 minuman dalam satu sesi. Definisi lain dari pesta minuman keras berlaku untuk seseorang yang pergi keluar dengan tujuan khusus untuk mabuk.

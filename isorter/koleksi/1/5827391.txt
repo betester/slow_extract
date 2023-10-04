@@ -1,0 +1,1 @@
+Ada seribu miligram dalam satu gram, dan ada seribu mikrogram dalam satu miligram. Faktor konversi dari mikrogram ke miligram seribu kali lipat. Hal ini dapat dilakukan dengan menyatakan pengukuran dalam mikrogram, sebagai angka desimal, dan memindahkan titik desimal tiga tempat ke kanan.

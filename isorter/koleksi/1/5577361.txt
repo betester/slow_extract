@@ -1,0 +1,1 @@
+Ada dua jenis nomor pada cek, nomor perutean yang ditunjuk ABA dan nomor rekening bank pemilik cek. <br /> <br /> American Banking Association (ABA) menetapkan ABA (routing number) pada tahun 1910, sejak itu setiap bank wajib memiliki nomor ABA sendiri. Awalnya empat angka pertama seharusnya memberikan lokasi bank, sekarang angka-angka itu tidak lagi akurat untuk tujuan itu.

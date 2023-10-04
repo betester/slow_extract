@@ -1,0 +1,1 @@
+Jumlah proton = 50 Jumlah elektron = 50 Jumlah neutron = 75 Dalam atom netral, jumlah elektron = jumlah proton = nomor atom unsur. ( dalam pertanyaan ini = 50) namun, kita tidak dapat menyatakan ini untuk ion ( atom bermuatan) karena jumlah elektronnya tidak sama dengan jumlah proton: Dalam ion bermuatan positif: jumlah elektron < jumlah proton

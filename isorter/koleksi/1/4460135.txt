@@ -1,0 +1,1 @@
+Klik tombol Bookmark dan pilih untuk membuka jendela Library. 1 Dari toolbar di jendela Library, klik Import and Backup dan pilih. 2 Di jendela Impor File Bookmark yang terbuka, navigasikan ke file HTML bookmark yang Anda impor dan pilih file tersebut. 3 Klik tombol Buka.

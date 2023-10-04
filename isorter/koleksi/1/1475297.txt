@@ -1,0 +1,1 @@
+Kata kunci: simulasi, aktuator, otot buatan. Simulasi posisi lengan aktuator berbasis PAM. Melepaskan aktuator penarik roda-pendarat utama harus menjadi proses yang mudah bagi airframer Prowler yang berpengalaman: lepaskan dua baut dan dua saluran hidraulik, dan aktuator ada di tangan Anda, siap digunakan.

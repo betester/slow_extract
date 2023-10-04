@@ -1,0 +1,1 @@
+Perhatikan bahwa nukleotida pada tRNA ini tidak membentuk kodon. Faktanya, mereka adalah kebalikannya - antikodon. Antikodon adalah pasangan komplementer yang sempurna untuk kodon. Jadi, jika kodon untuk serin adalah AGC, maka antikodon untuk serin adalah UCG. TRNA yang mengandung antikodon UCG juga akan menjadi tRNA yang menempel pada asam amino serin.

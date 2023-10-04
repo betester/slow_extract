@@ -1,0 +1,1 @@
+Jika sebuah segitiga memiliki dua lingkaran tertentu sebagai lingkaran luar dan lingkaran dalam, terdapat banyak segitiga lain dengan lingkaran dan lingkaran yang sama, dengan titik mana pun pada lingkaran sebagai titik sudut. (Ini adalah n =3 kasus porisma Poncelet).

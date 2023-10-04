@@ -1,0 +1,1 @@
+Dan untuk memulai, kita akan melakukan 'mikrogram per liter' hingga 'miligram per liter'. Ada 1000 mikrogram dalam satu miligram jadi kita bagi dengan 1000 dan kita mendapatkan 0,1 miligram per liter. Awal yang bagus. Sekarang mari kita ubah menjadi 'miligram per desiliter'.

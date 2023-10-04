@@ -1,0 +1,1 @@
+Ini adalah ikhtisar singkat tentang pengalaman penulisan runbook grafis dan tekstual di Otomatisasi Azure di portal Azure baru. Alat-alat ini memungkinkan Anda untuk secara efisien menulis runbook yang Anda gunakan untuk mengotomatisasi proses.

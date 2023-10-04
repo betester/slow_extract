@@ -1,0 +1,1 @@
+Ketika ditanya pertanyaan ini, agen Federal hanya menanyakan apakah Anda memiliki kontrak Jadwal GSA dan jika demikian, berapa nomor kontraknya. Nomor kontrak GSA mengikuti format ini: GS-XXX-XXXXX. Dua digit pertama berarti Jadwal Umum.

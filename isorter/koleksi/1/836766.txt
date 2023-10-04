@@ -1,0 +1,1 @@
+Sebutkan titik potong median dan dan titik potong median dan dengan cara yang sama yaitu sebagai titik G, sebelum membuktikan bahwa titik-titik tersebut sama. Tentukan dengan jelas bahwa titik perpotongan median dan dan median dan adalah titik yang sama.

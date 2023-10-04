@@ -1,0 +1,1 @@
+Berat krim = jumlah galon krim * berat satu galon krim. 4. Faktor skim = kadar lemak krim yang diukur - kadar lemak krim yang diinginkan. 5. Galon susu skim yang dibutuhkan = (berat krim * faktor skim) (kandungan lemak yang diinginkan krim * 8,63) Contoh: Galon krim = 180.

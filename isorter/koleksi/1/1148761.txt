@@ -1,0 +1,1 @@
+Hasil penjumlahan semua sudut dalam untuk poligon cembung sisi-N adalah N*180^o - 360^o = (N-2)*180^o Pada poligon beraturan sisi-N semua sudut N adalah sama, jadi masing-masing adalah sama dengan ((N-2)/N)*180^o Untuk N=9 ini memberikan ukuran satu sudut interior poligon bersisi 9 beraturan: ((9-2)/9)*180^o = 140 ^o

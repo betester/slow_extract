@@ -1,0 +1,1 @@
+PE saham dihitung dengan mengambil harga per saham saat ini dan membaginya dengan laba per saham (EPS). Rumus: harga per saham / laba per saham = rasio pendapatan harga. Misalnya, perusahaan dengan $2 EPS dan harga saham saat ini $20 akan memiliki PE 10.

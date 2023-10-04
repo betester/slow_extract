@@ -1,0 +1,1 @@
+Masalah NP-complete berarti masalah NP X, sehingga setiap masalah NP Y dapat direduksi menjadi X dengan reduksi polinomial. Itu menyiratkan bahwa jika ada orang yang datang dengan solusi waktu polinomial untuk masalah lengkap NP, itu juga akan memberikan solusi waktu polinomial untuk masalah NP apa pun.

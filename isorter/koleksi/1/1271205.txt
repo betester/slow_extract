@@ -1,0 +1,1 @@
+Nomor perutean untuk InterBank. Nomor perutean untuk InterBank adalah kode bank 9 digit yang digunakan untuk berbagai transaksi bank seperti setoran langsung, pembayaran elektronik, transfer kawat, pemesanan cek, dan banyak lagi. Nomor perutean juga dikenal sebagai nomor perutean bank, nomor perutean transit (RTN), nomor ABA, nomor perutean ACH.

@@ -1,0 +1,1 @@
+Nilai yang diamati dari data sampel secara konsisten sama dengan nilai yang diharapkan. Nilai yang diamati dari data sampel secara konsisten lebih kecil dari nilai yang diharapkan. 3) Apa yang dimaksud dengan istilah frekuensi harapan? Frekuensi yang ditemukan dalam data sampel.

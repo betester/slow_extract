@@ -1,0 +1,1 @@
+Nah, f dari x kali g dari x adalah x log natural dari x. Jadi g dari x adalah x, dan f dari x adalah log natural dari x, saya hanya suka menulis x di depan log natural x untuk menghindari ambiguitas. Jadi ini adalah x log natural dari x dikurangi antiturunan dari f prima dari x, yaitu 1 terhadap x kali g dari x, yaitu x, yaitu xdx.

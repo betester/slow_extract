@@ -1,0 +1,1 @@
+Temukan konstanta pegas di N/m.help! #1. tante girang1112. Massa 100 g menyebabkan pegas vertikal meregang 2,0 cm. a) temukan konstanta pegas dalam N/m: Tidak ada gambar yang diberikan kepada saya. Ok saya tidak yakin apakah ini adalah rumus untuk menemukan konstanta pegas jadi: k= mg/x dan jika demikian jawabannya adalah k=(100)(9.81)/2.0 cm k= 490.5 N/m apakah ini benar?

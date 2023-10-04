@@ -1,0 +1,1 @@
+Model driver Bluetooth Universal Windows untuk Windows 10. Di Windows 10, antarmuka driver transport Bluetooth untuk semua perangkat digabungkan dan menggunakan model driver Universal Windows. Anda dapat menulis satu driver yang berjalan di semua platform perangkat Windows.

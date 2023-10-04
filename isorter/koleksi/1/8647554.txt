@@ -1,0 +1,1 @@
+Techopedia menjelaskan Management Information Base (MIB) Setiap MIB dialamatkan atau diidentifikasi menggunakan pengidentifikasi objek (OID), yang sering kali merupakan pengaturan atau status perangkat. OID secara unik mengidentifikasi objek yang dikelola dalam hierarki MIB.

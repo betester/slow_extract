@@ -1,0 +1,1 @@
+Lihatlah bagaimana Anda mengidentifikasi perilaku eksponensial dari sebuah pola dalam data Anda. Anda juga akan melihat cara mengetahui apakah pola tersebut mewakili pertumbuhan eksponensial atau peluruhan eksponensial. Coba lihat!

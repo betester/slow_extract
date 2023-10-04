@@ -1,0 +1,1 @@
+Sudut juga dibentuk oleh perpotongan dua bidang di Euclidean dan ruang lainnya. Ini disebut sudut dihedral. Sudut yang dibentuk oleh perpotongan dua kurva pada bidang didefinisikan sebagai sudut yang ditentukan oleh garis singgung pada titik perpotongan.

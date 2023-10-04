@@ -1,0 +1,1 @@
+Metode getUseYn() tidak ditentukan untuk tipe Pengguna. Metode getDelYn() tidak ditentukan untuk tipe Pengguna. Metode getUserCd() tidak ditentukan untuk tipe User. Metode getUserNm() tidak ditentukan untuk tipe User. Metode getUserPs() tidak ditentukan untuk tipe User. Metode getMenuGrpCd() tidak ditentukan untuk tipe User.

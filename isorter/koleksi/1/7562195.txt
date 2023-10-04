@@ -1,0 +1,1 @@
+Memang, permainan 277 langkah dimainkan dalam sebuah turnamen di Klub Catur Internet. Anehnya, saya menemukan bahwa rata-rata panjang permainan (dimainkan oleh manusia) kira-kira 40 gerakan. Berdasarkan statistik yang disediakan oleh database game Chessgames (685.801), jumlah rata-rata gerakan adalah 40,04.

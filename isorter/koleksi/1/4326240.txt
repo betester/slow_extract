@@ -1,0 +1,1 @@
+Proses pengambilan sampel acak di mana setiap k (misalnya setiap elemen ke-5) atau anggota populasi dipilih untuk sampel setelah awal acak ditentukan. Proses pengambilan sampel acak di mana setiap k (misalnya setiap elemen ke-5) atau anggota populasi dipilih untuk sampel setelah awal acak ditentukan.

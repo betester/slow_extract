@@ -1,0 +1,1 @@
+Manipulasi URL (penulisan ulang URL) Manipulasi URL, juga disebut penulisan ulang URL, adalah proses mengubah (seringkali secara otomatis melalui program yang ditulis untuk tujuan itu) parameter dalam URL (Uniform Resource Locator).

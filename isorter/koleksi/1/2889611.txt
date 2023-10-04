@@ -1,0 +1,1 @@
+Perencanaan keamanan melibatkan pengembangan kebijakan keamanan dan penerapan kontrol untuk mencegah risiko komputer menjadi kenyataan. Kebijakan yang digariskan dalam makalah ini hanyalah pedoman. Setiap organisasi berbeda dan perlu merencanakan dan membuat kebijakan berdasarkan tujuan dan kebutuhan keamanan masing-masing.

@@ -1,0 +1,1 @@
+Proses host Windows (Rundll32) Penggunaan CPU TINGGI. Halo, saya baru-baru ini menemukan bahwa pendingin laptop saya menjadi gila dan saya tidak tahu mengapa, kemudian saya memulai Task Manager dan itu adalah proses host Windows (Rundll32) memakan 30% dari cpu.

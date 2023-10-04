@@ -1,0 +1,1 @@
+Gunakan bagan garis jika Anda memiliki label teks, tanggal, atau beberapa label numerik pada sumbu horizontal. Gunakan bagan sebar (bagan XY) untuk menampilkan data XY ilmiah. Untuk membuat diagram garis, lakukan langkah-langkah berikut. 1. Pilih rentang A1:D7.

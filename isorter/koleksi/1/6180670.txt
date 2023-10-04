@@ -1,0 +1,1 @@
+Spark 2.2.0 dibangun dan didistribusikan untuk bekerja dengan Scala 2.11 secara default. (Spark juga dapat dibuat untuk bekerja dengan versi Scala lainnya.) Untuk menulis aplikasi di Scala, Anda harus menggunakan versi Scala yang kompatibel (mis. 2.11.X). Untuk menulis aplikasi Spark, Anda perlu menambahkan ketergantungan Maven pada Spark.

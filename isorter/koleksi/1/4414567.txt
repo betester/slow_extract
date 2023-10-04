@@ -1,0 +1,1 @@
+Sinyal suara bergerak melalui saluran telepon pada frekuensi mulai dari 0 kHz hingga 4 kHz. Modem standar menggunakan frekuensi yang sama, tetapi DSL menggunakan frekuensi antara 25 kHz dan 1 MHz. Bandwidth ekstra ini memastikan bahwa lebih banyak data dapat dikirim melalui saluran yang sama.

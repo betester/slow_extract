@@ -1,0 +1,1 @@
+1 Jika Anda tahu Anda memiliki sistem operasi Linux atau UNIX di PC Anda, coba jalankan perintah uname. Ketik uname -a tanpa tanda kutip untuk mendapatkan informasi versi sistem. Tinggalkan tanda kutip dan titik.

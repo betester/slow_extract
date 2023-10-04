@@ -1,0 +1,1 @@
+Apa pun selain 8 atau 12 digit bukanlah kode UPC! (Dan hanya karena itu 8 atau 12 digit tidak berarti itu adalah UPC.) Anda harus memasukkan setiap digit di sini. Jika Anda memiliki pemindai kode batang yang menampilkan angka biasa, Anda seharusnya dapat menggunakannya untuk memasukkan nomor UPC di sini.

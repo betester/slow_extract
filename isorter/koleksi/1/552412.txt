@@ -1,0 +1,1 @@
+Singkatnya, Anda dapat membaca dan menulis file MS Excel menggunakan Java. Selain itu, Anda dapat membaca dan menulis file MS Word dan MS PowerPoint menggunakan Java. Apache POI adalah solusi Java Excel Anda (untuk Excel 97-2008).

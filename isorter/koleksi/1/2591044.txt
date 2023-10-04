@@ -1,0 +1,1 @@
+Filter point-of-entry (POE) adalah komponen coax kecil yang menyimpan sinyal MoCA ke rumah Anda dan meningkatkan kinerja jaringan MoCA Anda. Tanpa itu, tidak ada yang bisa menghentikan sinyal jaringan Anda untuk keluar dari rumah Anda, kembali ke jalur coax asalnya.

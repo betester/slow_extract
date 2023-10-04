@@ -1,0 +1,1 @@
+Topologi Bus Fisik USB. 1 host USB dengan pengontrol host. 2 hub root 2-port terintegrasi ke pengontrol host. 3 Hub 4-port terintegrasi ke dalam keyboard (bagian dari perangkat gabungan) 4 Keyboard USB (bagian dari perangkat gabungan) 5 Papan tombol USB (bagian dari perangkat gabungan) 6 Hub 4-port (bagian dari hub 7-port) 7 mouse USB. 8 USB flashdisk. 9 hub 4-port.

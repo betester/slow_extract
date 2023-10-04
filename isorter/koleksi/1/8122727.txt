@@ -1,0 +1,1 @@
+Pembeli harus mendaftar ke penyedia, dan mungkin harus menyelesaikan proses KYC (Know Your Customer) lengkap sebelum mereka diizinkan menggunakan eWallet. Beberapa penyedia layanan pembayaran memiliki konsep akun eWallet terverifikasi dan tidak terverifikasi untuk pengguna yang telah menyelesaikan KYC dan mereka yang belum.

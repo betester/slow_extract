@@ -1,0 +1,1 @@
+UPC Generik (Kode Produk Universal) menggunakan awalan perusahaan generik (033383) bersama dengan nomor item yang ditetapkan oleh PMA untuk berfungsi sebagai nomor UPC untuk item produk yang dikemas.

@@ -1,0 +1,1 @@
+EDM Total Station tipikal dapat mengukur jarak yang akurat hingga sekitar 0,1 milimeter atau 1/1000 kaki, tetapi sebagian besar aplikasi survei tanah hanya melakukan pengukuran jarak hingga 1,0 mm atau 1/100 kaki. Beberapa mesin modern bersifat 'robot' yang memungkinkan operator mengontrol alat berat dari jarak jauh melalui remote control.

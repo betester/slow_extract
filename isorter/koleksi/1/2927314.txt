@@ -1,0 +1,1 @@
+Penemuan terbaru saya adalah fungsi ISNA. sangat sangat berguna jika Anda menggunakan pencarian dan beberapa item mungkin tidak ditemukan. ISNA = Tidak tersedia yang mengevaluasi logika benar atau salah dan digunakan di dalam JIKA itu akan memungkinkan Anda untuk mencegah #N/A muncul sebagai nilai rumus.

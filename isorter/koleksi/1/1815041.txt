@@ -1,0 +1,1 @@
+Membuat delegasi dari tipe tertentu yang mewakili metode statis atau instans yang ditentukan, dengan argumen pertama yang ditentukan. Membuat delegasi dari tipe tertentu yang mewakili metode statis atau instans yang ditentukan, dengan argumen pertama yang ditentukan dan perilaku yang ditentukan pada kegagalan untuk mengikat.

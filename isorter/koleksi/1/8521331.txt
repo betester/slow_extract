@@ -1,0 +1,1 @@
+Gunakan ambang biaya untuk opsi paralelisme untuk menentukan ambang di mana Microsoft SQL Server membuat dan menjalankan paket paralel untuk kueri. SQL Server membuat dan menjalankan paket paralel untuk kueri hanya jika perkiraan biaya untuk menjalankan paket serial untuk kueri yang sama lebih tinggi daripada nilai yang ditetapkan dalam ambang biaya untuk paralelisme.

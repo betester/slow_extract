@@ -1,0 +1,1 @@
+1 Masukkan Jarak Ke kota, desa, kota kecil, bandara atau nama tempat dari California (AS) di kotak teks Jarak Ke (kedua). 2 Anda juga dapat memasukkan nama atau kode bandara dari California (AS) di bidang di atas.

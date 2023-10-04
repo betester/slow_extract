@@ -1,0 +1,1 @@
+1 Host Controller Interface (USB), antarmuka yang memungkinkan pengontrol host USB untuk berkomunikasi dengan driver. 2 Antarmuka Pengontrol Host (Bluetooth) dalam protokol Bluetooth. Host Controller Interface (memori non-volatile), antarmuka yang memungkinkan SSD SATA Express / NVM Express untuk berkomunikasi dengan driver.

@@ -1,0 +1,1 @@
+Karena momentum adalah vektor, maka gaya, sebagai turunan waktunya, juga merupakan vektor - ia memiliki besar dan arah. Gaya dapat ditambahkan bersama-sama menggunakan jajaran genjang gaya. Ketika dua gaya bekerja pada sebuah benda, gaya yang dihasilkan, resultan, adalah jumlah vektor dari gaya-gaya awal.

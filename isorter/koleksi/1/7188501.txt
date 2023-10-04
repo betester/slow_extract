@@ -1,0 +1,1 @@
+Contoh PRF dengan PST yang dikonfigurasi Ini dari file PRF yang dibuat secara otomatis dari Microsoft Office Customization and Installation Wizard (CIW). Anda dapat melihat konten file ini dengan Notepad Jika Anda tidak sengaja menjalankannya dan membuat profil di Outlook, buka Control Panel, Mail dan klik tombol Show Profiles.
