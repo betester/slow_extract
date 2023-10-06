@@ -73,7 +73,7 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) (*index.InvertedI
 		invertedIndexHeap.Push(indexReader.Iterator())
 	}
 	defer bsbi.deleteIndices(indicesReader)
-	return bsbi.mergeIndices(invertedIndexHeap) 
+	return bsbi.mergeIndices(invertedIndexHeap)
 }
 
 func (bsbi *Bsbi) deleteIndices(indices []*index.InvertedIndex) {
@@ -95,7 +95,7 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 		case error:
 			indexWriter.CloseIndex()
 			indexWriter.WriteMetadata()
-			return indexWriter.Iterator(), nil 
+			return indexWriter.Iterator(), nil
 		}
 
 		smallestIterator := smallestElement.(*index.InvertedIndexIterator)
@@ -105,14 +105,15 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 			smallestIterator.IndexFile.Close()
 			continue
 		}
-
-		if smallestTerm == nextSmallestTerm {
-			termPostingLists = append(termPostingLists, smallestPostingList)
-		} else {
+		
+		if smallestTerm < nextSmallestTerm {
 			mergedPostingList := utils.MergePostingLists(termPostingLists)
-			indexWriter.WriteIndex(nextSmallestTerm, mergedPostingList)
-			smallestElement = nextSmallestTerm
+			indexWriter.WriteIndex(smallestTerm, mergedPostingList)
+			termPostingLists = make([][]uint32, 0)
+			smallestTerm = nextSmallestTerm
 		}
+
+		termPostingLists = append(termPostingLists, smallestPostingList)
 
 		heap.Push(invertedIndexHeap, smallestIterator)
 	}
@@ -178,9 +179,6 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
 		}
 
-		if invertedIndex[tdPair[0]][len(invertedIndex[tdPair[0]])-1] < tdPair[1] {
-			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
-		}
 	}
 
 	return invertedIndex, nil

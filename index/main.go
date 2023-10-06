@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"sort"
 
 	"github.com/slow_extract/compressor"
 )
@@ -188,20 +187,22 @@ func (ii *InvertedIndex) WriteIndex(term uint32, postingList []uint32) error {
 
 func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32) error {
 
-	sortedTerm := make([]uint32, 0)
-
+	var maxTerm uint32 = 0
 	for term := range mappedDoc {
-		sortedTerm = append(sortedTerm, term)
+		if maxTerm < term {
+			maxTerm = term
+		}
 	}
 
-	sort.Slice(sortedTerm, func(i, j int) bool {
-		return sortedTerm[i] < sortedTerm[j]	
-	})
+	var i uint32 = 0
 
-	for _, term := range sortedTerm {
-		if err := ii.WriteIndex(term, mappedDoc[term]); err != nil {
-			return err
+	for i <= maxTerm {
+		if val, ok := mappedDoc[i]; ok {
+			if err := ii.WriteIndex(i, val); err != nil {
+				return err
+			}	
 		}
+		i++
 	}
 
 	ii.WriteMetadata()

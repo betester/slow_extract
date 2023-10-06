@@ -21,13 +21,8 @@ func TestBsbi(t *testing.T) {
 		IndexPath: ".tmp",
 	}
 
-	itrator, err := bsbi.CreateCollectionIndex("koleksi")
+	_, err := bsbi.CreateCollectionIndex("koleksi")
 	if err != nil {
 		log.Println(err)
-	} else {
-		for itrator.HasNext() {
-			term, _, _ := itrator.Next()
-			log.Println(term)
-		}
-	}
+	} 
 }

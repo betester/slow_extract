@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/slow_extract/isorter"
 	"github.com/slow_extract/mapper"
@@ -27,7 +28,6 @@ func main() {
 	}
 
 	for iterator.HasNext() {
-		term, _, _ := iterator.Next()
-		fmt.Println(term)
+		log.Println(iterator.Next())
 	}
 }
