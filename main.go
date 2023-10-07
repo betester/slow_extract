@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/slow_extract/isorter"
@@ -21,13 +20,12 @@ func main() {
 		IndexPath: "ci",
 	} 
 
-	iterator , err := bsbi.CreateCollectionIndex("collections")
+	query := "kiamat"
 
-	if err != nil {
-		fmt.Println(err)
+	result := bsbi.Search(query)
+	
+	for _, file := range result {
+		log.Println(file)
 	}
 
-	for iterator.HasNext() {
-		log.Println(iterator.Next())
-	}
 }
