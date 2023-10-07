@@ -251,8 +251,15 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 	for _, tdPair := range tdPairs {
 		if _, ok := invertedIndex[tdPair[0]]; !ok {
 			invertedIndex[tdPair[0]] = make([]uint32, 0)
+				invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
 		}
-		invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+
+		n := uint32(len(invertedIndex[tdPair[0]]))
+
+		if (n > 0 && invertedIndex[tdPair[0]][n-1] != tdPair[1]) {
+			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+		}
+
 	}
 	return invertedIndex, nil
 }
