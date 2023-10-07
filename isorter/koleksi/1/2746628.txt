@@ -1,1 +1,0 @@
-Ada dua sudut pandang tentang penggunaan daftar definisi. Beberapa orang percaya bahwa daftar definisi hanya boleh digunakan untuk istilah dan definisi. Yang lain percaya bahwa daftar definisi dapat digunakan untuk mengikat item apa pun yang memiliki hubungan langsung satu sama lain (set nama/nilai).

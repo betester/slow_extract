@@ -1,1 +1,0 @@
-Jika Anda menggunakan hub, verifikasi bahwa itu adalah hub USB 3.0. Jika Anda menggunakan hub USB 2.0, semua perangkat USB SuperSpeed yang terpasang akan beroperasi dengan kecepatan tinggi. Ganti hub dengan hub USB 3.0, atau sambungkan perangkat langsung ke port USB 3.0.

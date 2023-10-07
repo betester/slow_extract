@@ -1,1 +1,0 @@
-BankenScribe MICR Font digunakan terutama untuk mencetak Garis MICR dari cek bank atau dokumen keuangan lainnya. Garis MICR biasanya berisi informasi tentang nomor rekening, perutean dan kode transaksi, dan jumlah cek.

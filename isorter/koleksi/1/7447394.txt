@@ -1,1 +1,0 @@
-Tapi sebelum SNI, mereka jauh lebih cepat. Indikasi Nama Server membantu mencegah penipisan akhirnya sedikit lebih lama. Akhirnya, internet akan bermigrasi ke alamat IP IPv6. Ada potensi 340 undecillion alamat IPv6 sehingga daftar tersebut akan bertahan sedikit lebih lama. Bagaimana masa depan SNI?

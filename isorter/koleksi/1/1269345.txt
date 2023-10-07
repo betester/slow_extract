@@ -1,1 +1,0 @@
-PDLM asli adalah PDLM yang tertanam dalam perangkat lunak Cisco IOS. Anda menerimanya secara otomatis bersama dengan perangkat lunak Cisco IOS. PDLM non-asli tidak tertanam dalam perangkat lunak Cisco IOS. Anda dapat mengunduhnya satu per satu dari Cisco.com. Nomor Versi Terpisah

@@ -1,1 +1,0 @@
-Sebuah slinky diberikan dua pulsa dalam arah yang sama dari ujung yang berlawanan. Sebuah slinky diberikan dua pulsa dalam arah yang berlawanan dari ujung yang berlawanan. Memberikan pulsa berurutan pada slinky dengan ujung tetap. Meningkatkan frekuensi gelombang berdiri pada slinky.

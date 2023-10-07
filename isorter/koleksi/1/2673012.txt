@@ -1,1 +1,0 @@
-Hukum Ohm mendefinisikan hubungan antara tegangan, arus, dan hambatan dalam suatu rangkaian listrik: I = V / R. Arus berbanding lurus dengan tegangan dan berbanding terbalik dengan hambatan.

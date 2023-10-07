@@ -1,1 +1,0 @@
-Catatan Pelajaran 5.5: Metode untuk Memperkirakan Waktu dan Biaya Proyek, 5 poin. Bagian dalam buku teks ini memperkenalkan sejumlah teknik. Jangan fokus pada detail setiap teknik. Pelajari istilah dan fokus pada pemahaman bahwa sejumlah teknik sesuai dengan kategori estimasi top-down.

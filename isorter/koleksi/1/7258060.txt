@@ -1,1 +1,0 @@
-Mari kita mulai dengan sedikit terminologi pengolah kata sehingga kita semua bekerja dari titik referensi yang sama. 1 Kursor / Titik Penyisipan - Kursor, atau titik penyisipan, adalah bilah vertikal yang berkedip di layar. Di sinilah teks Anda akan muncul saat Anda mulai mengetik.

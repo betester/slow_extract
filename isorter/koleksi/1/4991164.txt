@@ -1,1 +1,0 @@
-Membandingkan kata kunci dalam C# dan Java memberikan wawasan tentang perbedaan utama dalam bahasa, dari perspektif pengembang aplikasi. Terminologi bahasa-netral akan digunakan, jika mungkin, untuk keadilan.

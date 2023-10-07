@@ -1,1 +1,0 @@
-Cisco IOS, tidak seperti banyak sistem operasi, hanya dapat diperoleh melalui Cisco, hanya karena Anda dapat menjalankannya hanya pada produk Cisco. Saat Anda membeli router Cisco, router tersebut harus disertai dengan versi IOS terbaru yang telah dimuat sebelumnya. Ini semua yang Anda butuhkan untuk membuat router Anda beroperasi.

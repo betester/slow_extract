@@ -1,1 +1,0 @@
-Check-in Penerbangan. 1 Masukkan nomor konfirmasi, nomor tiket, atau gunakan login MileagePlus Anda untuk mengakses reservasi Anda. 2 6 karakter yang dapat disebut sebagai pencari catatan United atau nomor konfirmasi. 3 13 digit yang dapat disebut sebagai nomor eTicket atau nomor tiket.

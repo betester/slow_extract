@@ -1,1 +1,0 @@
-Analis sistem tentu saja tidak terbatas hanya pada proyek pengembangan perangkat lunak. Namun, untuk beberapa analis sistem, hanya ini yang mereka kerjakan. Pada setiap tahap siklus hidup pengembangan sistem (SDLC), mereka bekerja sama dengan programmer, desainer UX, penguji QA, dan sebagainya, untuk membangun sistem.

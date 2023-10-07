@@ -1,1 +1,0 @@
-1) Cari tahu rekaman persegi yang akan dibahas. 2) Kalikan rekaman persegi dengan kedalaman yang diinginkan untuk mendapatkan rekaman kubik. 3) Bagilah ukuran kubik dengan 27 untuk mendapatkan meter kubik yang dibutuhkan. Contoh: Sebuah petak lanskap berbentuk persegi panjang dengan panjang 12' 8 dan lebar rata-rata 5' 6 dan kedalaman yang diinginkan adalah kedalaman 2 .

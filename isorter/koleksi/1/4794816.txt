@@ -1,1 +1,0 @@
-Rata-rata, Median, Modus dan Jangkauan. Saat Anda mendapatkan kumpulan data yang besar, ada berbagai cara untuk mendeskripsikan data secara matematis. Istilah rata-rata banyak digunakan dengan kumpulan data. Mean, median, dan modus adalah semua jenis rata-rata. Bersama dengan jangkauan, mereka membantu menggambarkan data. Definisi:

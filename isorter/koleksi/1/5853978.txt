@@ -1,1 +1,0 @@
-Dokumentasi Azure HDInsight. Pelajari cara menggunakan Hadoop di cloud pada HDInsight untuk menganalisis streaming atau data historis. Tutorial dan dokumentasi lainnya menunjukkan cara membuat cluster, memproses dan menganalisis data besar, dan mengembangkan solusi dengan Hadoop, Spark, HBase, R-Server, Storm, dan teknologi lainnya di ekosistem Hadoop. Referensi.

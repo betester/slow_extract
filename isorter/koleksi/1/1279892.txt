@@ -1,1 +1,0 @@
-Terlepas dari kenyataan bahwa Thumbs.db adalah file sistem tersembunyi, itu mengganggu orang karena cenderung muncul di tempat-tempat yang tidak diinginkan. Berkali-kali Anda akan mencoba meng-zip folder yang penuh dengan gambar dan mengirimkannya melalui email ke teman atau mengunggahnya ke situs FTP, dan Thumbs.db mengikutinya.

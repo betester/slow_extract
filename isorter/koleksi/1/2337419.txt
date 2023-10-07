@@ -1,1 +1,0 @@
-Topeng Gaussian hampir sempurna mensimulasikan keburaman optik (lihat juga fungsi penyebaran titik). Dalam aplikasi pemrosesan gambar apa pun yang berorientasi pada produksi artistik, filter Gaussian digunakan untuk pengaburan secara default. Sifat kuantitatif penting lainnya dari filter Gaussian adalah bahwa filter tersebut tidak negatif di mana-mana.

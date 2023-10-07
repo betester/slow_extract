@@ -1,1 +1,0 @@
-PANDUAN DESAIN REBAR HILTI HY 150 7 Jarak antara tulangan cor dan tulangan baru Jika jarak kosong antara tulangan sambungan dan tulangan cor terdekat adalah ... e > 4 xd tumpang tindih harus ditambah sebesar e - 4 xd Tabel 2 Peningkatan Tumpang Tindih Diperlukan (mm) Ukuran Tulangan Jarak antar batang eksisting = 150 mm Jarak antar batang eksisting = 200 mm

@@ -1,1 +1,0 @@
-Pengaturan Untuk Tidak Menampilkan Baris Header Di Semua Halaman untuk Laporan SSRS. Namun, bagaimana jika kita sebenarnya ingin Header Row 3 hanya muncul di halaman pertama, tetapi kita ingin Header Row 4 muncul di semua halaman. Di luar kotak, SSRS tidak akan mengizinkan kami membuat skenario ini.

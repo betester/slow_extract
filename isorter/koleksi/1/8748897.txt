@@ -1,1 +1,0 @@
-Layanan komputasi awan inti di Google Cloud Platform meliputi: Google Compute Engine: Penawaran infrastruktur sebagai layanan (IaaS) yang menyediakan instance mesin virtual (VM) kepada pengguna untuk hosting beban kerja.

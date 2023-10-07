@@ -25,4 +25,10 @@ func TestBsbi(t *testing.T) {
 	if err != nil {
 		log.Println(err)
 	} 
+
+	result := bsbi.Search("bebek")
+	for _, file := range result {
+		log.Println(file)
+	}
+
 }

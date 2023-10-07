@@ -1,1 +1,0 @@
-Pelajari cara mengaktifkan kontrol ActiveX di Internet Explorer. Anda dapat mengaktifkan kontrol ActiveX di browser web Anda untuk mengunduh program yang berguna dari internet. ActiveX dapat memberikan fitur interaktif yang hebat tetapi juga membawa risiko mengizinkan virus dan malware lain yang tidak diinginkan ke komputer Anda.

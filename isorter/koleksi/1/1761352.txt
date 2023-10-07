@@ -1,1 +1,0 @@
-Pompa proton adalah jenis transpor aktif. Pompa membutuhkan energi untuk mengangkut proton yang diterimanya, bukan dari ATP, melainkan dari elektron yang ditransfer dari NADH. Ini memompa proton melintasi membran melawan gradien konsentrasinya.

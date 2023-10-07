@@ -1,1 +1,0 @@
-Ada perbedaan waktu 3 jam antara California dan New York. Contoh: 12:00 siang di New York = 09:00 di California New York berada di Zona Waktu Standar Timur -5 jam GMT dan California dalam Waktu Standar Pasifik Zona atau -8 jam GMT. Berapa jam perbedaan antara New York dan California?

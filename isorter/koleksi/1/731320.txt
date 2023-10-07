@@ -1,1 +1,0 @@
-Kepekaan. Sensitivitas menunjukkan seberapa besar tegangan keluaran berubah sebagai akibat dari perubahan celah antara target dan sensor kapasitif. Sensitivitas umum adalah 1V/0.1mm. Ini berarti bahwa untuk setiap 0,1 mm perubahan celah, tegangan output akan berubah 1V.

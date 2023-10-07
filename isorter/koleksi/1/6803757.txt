@@ -1,1 +1,0 @@
-Seperti maksud standar, data ditambahkan ke maksud siaran menggunakan pasangan nilai kunci bersama dengan metode putExtra() dari objek maksud. String kategori opsional dapat ditetapkan ke maksud siaran melalui panggilan ke metode addCategory().

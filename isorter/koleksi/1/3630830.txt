@@ -1,1 +1,0 @@
-Ini merupakan uji coba lapangan kedua yang dilakukan oleh MoCA. Pada tahun 2005, Alliance melakukan pengujian MoCA 1.0 di 250 rumah di seluruh AS dan memverifikasi throughput bersih lebih baik dari 100 Mbps di 97 persen dari semua outlet. Kecepatan data yang sama dicapai di 100 persen outlet dengan perbaikan kecil pada jaringan di rumah.

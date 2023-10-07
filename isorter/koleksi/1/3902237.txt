@@ -1,1 +1,0 @@
-Untuk semua sistem operasi, Anda dapat menggunakan alat Aktifkan FIPS kami untuk membuat file Kebijakan Lokal AnyConnect dengan FIPS diaktifkan. Alat Aktifkan FIPS adalah alat baris perintah yang berjalan di Windows menggunakan hak administrator atau sebagai pengguna root untuk Linux dan Mac.

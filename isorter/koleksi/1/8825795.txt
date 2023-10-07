@@ -1,1 +1,0 @@
-Atur dimensi desain Anda menjadi: 8,75 x 5,75. Ukuran trim akhir adalah: 8,5 x 5,5. Margin Dalam (area desain): 0,25 di dalam garis trim. Karena garis trim mungkin sedikit berbeda, simpan teks atau grafik apa pun yang ingin Anda pertahankan dalam area desain.

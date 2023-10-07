@@ -1,1 +1,0 @@
-Perbedaan antara Trafo Step-up dan Step-down Transformator adalah perangkat statis yang mentransfer daya listrik a.c dari satu rangkaian ke rangkaian lain pada frekuensi yang sama, tetapi level tegangan biasanya berubah.

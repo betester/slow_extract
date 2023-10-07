@@ -1,1 +1,0 @@
-Ikatan pada fluor pada bidang berada pada 90 terhadap ikatan di atas dan di bawah bidang, sehingga total ada 2 tolakan pasangan ikatan-pasangan ikatan. Oleh karena itu, struktur dengan jumlah tolakan minimum adalah yang terakhir ini, karena tolakan pasangan ikatan-pasangan ikatan lebih kecil daripada tolakan pasangan bebas-pasangan ikatan.

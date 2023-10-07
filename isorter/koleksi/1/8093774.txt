@@ -1,1 +1,0 @@
-.docx, seperti .doc adalah format dokumen Microsoft Word. Perbedaan antara keduanya adalah bahwa .doc adalah format yang jauh lebih tua, digunakan oleh versi Word sejak tahun 90-an, sedangkan .docx adalah format standar internasional yang digunakan oleh versi Word sejak Word 2007.

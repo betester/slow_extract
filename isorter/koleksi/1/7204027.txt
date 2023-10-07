@@ -1,1 +1,0 @@
-Emulasi kartu tuan rumah. Emulasi kartu host (HCE) adalah arsitektur perangkat lunak yang menyediakan representasi virtual yang tepat dari berbagai kartu identitas elektronik (akses, transit, dan perbankan) hanya dengan menggunakan perangkat lunak. Sebelum arsitektur HCE, transaksi NFC terutama dilakukan menggunakan elemen aman.

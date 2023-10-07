@@ -1,1 +1,0 @@
-Setelah semua perubahan pada hutang usaha telah ditambahkan dan dikurangi dari saldo yang dibawa, akuntan tahu berapa banyak hutang perusahaan pada hutang dagang. Perubahan saldo harus ditambahkan ke laba bersih pada laporan arus kas.

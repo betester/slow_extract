@@ -1,1 +1,0 @@
-Coba simulasi Ladybug Motion 2D baru untuk versi terbaru yang diperbarui. Pelajari tentang posisi, kecepatan, dan vektor percepatan. Gerakkan bola dengan mouse atau biarkan simulasi menggerakkan bola dalam empat jenis gerakan (2 jenis linier, harmonik sederhana, lingkaran). Apakah vektor kecepatan berwarna biru atau hijau?

@@ -1,1 +1,0 @@
-Juga, jumlah digit dalam kode STD menunjukkan kapasitas pertukaran -- semakin besar kode STD, semakin kecil pertukarannya. Anda juga dapat menebak kira-kira jalur hop yang akan Anda ambil untuk mencapai angka yang diinginkan dengan melihat kode STD.

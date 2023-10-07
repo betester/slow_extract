@@ -1,1 +1,0 @@
-Ubah teks label kategori dalam bagan. 1 Di bagan, klik sumbu horizontal, atau lakukan hal berikut untuk memilih sumbu dari daftar elemen bagan: Klik di mana saja di bagan. Ini menampilkan Alat Bagan, menambahkan tab Desain, Tata Letak, dan Format. 2 Pada tab Desain, dalam grup Data, klik Pilih Data.

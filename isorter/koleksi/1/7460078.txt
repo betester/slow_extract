@@ -1,1 +1,0 @@
-Driver OS yang lebih rendah tidak akan cocok dengan Windows 10 baru, atau file driver mungkin hilang selama instalasi. Oleh karena itu, Anda perlu menginstal driver Lenovo baru setelah memperbarui ke Windows 10 dari Windows 8.1, Windows 8, Windows 7, Windows XP, atau Windows Vista untuk memperbaiki masalah.

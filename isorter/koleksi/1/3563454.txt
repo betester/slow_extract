@@ -1,1 +1,0 @@
-CISSP Domain. Domain CISSP diambil dari berbagai topik keamanan informasi dalam (ISC) CBK. CBK CISSP terdiri dari 8 domain berikut: 1 Keamanan dan Manajemen Risiko (Keamanan, Risiko, Kepatuhan, Hukum, Regulasi, dan Kelangsungan Bisnis). 2 Konsep kerahasiaan, integritas, dan ketersediaan. 3 Prinsip tata kelola keamanan. 4 Kepatuhan. 5 Masalah hukum dan peraturan.

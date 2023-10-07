@@ -1,1 +1,0 @@
-Untuk menulis ke konsol dengan menggunakan PrintWriter, tentukan System.out untuk aliran keluaran dan siram aliran setelah setiap baris baru. Ingat, tidak ada yang salah dengan menggunakan System.out untuk menulis output teks sederhana ke konsol saat Anda mempelajari Java atau men-debug program Anda.

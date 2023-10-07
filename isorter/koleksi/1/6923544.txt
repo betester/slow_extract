@@ -1,1 +1,0 @@
-Tempatkan piring pai dalam oven pada suhu dan untuk jangka waktu yang disarankan oleh resep. Jika tidak ada suhu yang disarankan, atau Anda sedang mengada-ada, panaskan oven dengan api sedang (sekitar 200C/400F) dan panggang bagian dasarnya selama kurang lebih 15 menit, (kurang dari kue yang mengandung gula).

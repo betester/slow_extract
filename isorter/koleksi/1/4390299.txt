@@ -1,1 +1,0 @@
-Dapatkan Nama Bulan atau Hari. Jika sel berisi tanggal, Anda dapat mengekstrak bagian tanggal tersebut sebagai teks. Misalnya, tunjukkan nama bulan, atau nama hari kerja dari tanggal tersebut. Dalam contoh ini, tanggal ada di sel A2. Nama Bulan (pendek): =TEXT(A2,mmm)

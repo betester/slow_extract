@@ -1,1 +1,0 @@
-Badan hukum Anda diharuskan membayar pajak gaji dan asuransi sosial seperti jaminan sosial dalam daftar gaji Anda. Di Oracle Fusion Applications, Anda dapat mendaftarkan unit wajib penggajian untuk membayar dan melaporkan pajak penggajian dan asuransi sosial atas nama banyak badan hukum Anda.

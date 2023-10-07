@@ -1,1 +1,0 @@
-Di Windows 8, set driver USB 3.0 (tumpukan driver USB) yang disediakan Microsoft bekerja dengan sebagian besar pengontrol host. Tumpukan driver Microsoft USB 3.0 tidak berfungsi dengan pengontrol Fresco Logic FL1000. Untuk menentukan apakah Anda memiliki pengontrol FL1000, buka Pengelola Perangkat dan perluas pengontrol Universal Serial Bus.

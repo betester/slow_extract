@@ -1,1 +1,0 @@
-Tahun Model Tesla tidak sama dengan pabrikan tradisional, tahun model hanyalah tanggal di mana mobil diproduksi. Dengan pemikiran tersebut, perangkat keras autopilot, yang terdiri dari: - Susunan kamera berwawasan ke depan di bagian tengah atas kaca depan. - Radar berwawasan ke depan terletak di grill depan bawah.

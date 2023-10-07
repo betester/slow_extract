@@ -1,1 +1,0 @@
-Analis risiko kredit kuantitatif mengukur 4 hal yang diberikan pinjaman apa pun (atau dalam istilah risiko kredit, eksposur) Probability of Default - seberapa besar kemungkinan peminjam atau kumpulan peminjam ini tidak akan membayar kembali? Loss Given Default - Ketika peminjam tidak membayar kembali, ada cara untuk memulihkan jumlah terutang.

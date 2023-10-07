@@ -1,1 +1,0 @@
-Transmisi data juga komunikasi data atau komunikasi digital adalah transfer data (bitstream digital atau sinyal analog digital) melalui saluran komunikasi point-to-point atau point-to-multipoint. Contoh saluran tersebut adalah kabel tembaga, serat optik, saluran komunikasi nirkabel, media penyimpanan dan bus komputer.

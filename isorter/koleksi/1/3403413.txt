@@ -1,1 +1,0 @@
-Kueri biasanya didefinisikan sebagai transformasi basis data generik, yaitu fungsi. tion pemetaan hubungan ke hubungan, yang invarian di bawah isomorfisme. Ini. sesuai dalam praktiknya dengan persyaratan bahwa kueri harus independen. representasi dari data dalam database.

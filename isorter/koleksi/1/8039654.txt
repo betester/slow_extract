@@ -1,1 +1,0 @@
-Laporan ini juga menampilkan kelompok usia faktur. Untuk menghasilkan laporan, Anda harus memilih tanggal laporan yang akan digunakan sebagai tanggal referensi perkiraan. Sebuah pilihan juga diberikan untuk mendasarkan tanggal laporan baik pada tanggal faktur atau tanggal posting. Anda juga dapat memilih untuk menua faktur berdasarkan tanggal jatuh tempo atau tanggal faktur.

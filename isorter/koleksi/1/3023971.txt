@@ -1,1 +1,0 @@
-Artikel ini akan mengasumsikan bahwa pembaca telah memahami fungsi Excel, dan dapat menggunakan fungsi dasar seperti SUM, AVERAGE, dan TODAY. Dalam penggunaan yang paling umum, VLOOKUP adalah fungsi database, artinya bekerja dengan tabel database atau lebih sederhana, daftar hal-hal di lembar kerja Excel.

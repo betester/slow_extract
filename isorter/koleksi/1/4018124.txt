@@ -1,1 +1,0 @@
-faktor Q. Filter band-pass dapat dicirikan oleh faktor Q-nya. Faktor Q adalah kebalikan dari bandwidth fraksional. Filter Q tinggi akan memiliki passband yang sempit dan filter Q rendah akan memiliki passband yang lebar. Ini masing-masing disebut sebagai filter pita sempit dan pita lebar.

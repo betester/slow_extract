@@ -1,1 +1,0 @@
-Re: Mengapa menggunakan firewall khusus ketika router memiliki kemampuan inspeksi juga? Maksud saya, router dapat bertindak sebagai firewall bukan? lalu mengapa menggunakan firewall? router memiliki cbac, zbf. lalu mengapa menggunakan firewall? Jared Nov 12, 2011 4:56 AM (menanggapi DanielWoods) Ini juga masalah penggunaan CPU dan memori.

@@ -1,1 +1,0 @@
-Kecepatan Rata-Rata Lapangan Bisbol Menurut Kelompok Umur. Rentang Kecepatan (dalam MPH) untuk Berbagai Lapangan Bisbol berdasarkan Kelompok Umur. Semua kecuali di bawah ini didasarkan pada pembacaan radar oleh editor. Kecepatan kami diukur dari tangan (dekat dengan pitcher).

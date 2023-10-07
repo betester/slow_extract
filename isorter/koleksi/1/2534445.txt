@@ -1,1 +1,0 @@
-Aplikasi penting dari rekursi dalam ilmu komputer adalah dalam mendefinisikan struktur data dinamis seperti daftar dan pohon. Struktur data rekursif dapat tumbuh secara dinamis ke ukuran tak terbatas secara teoritis sebagai respons terhadap persyaratan runtime; sebaliknya, ukuran array statis harus diatur pada waktu kompilasi.

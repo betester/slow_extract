@@ -1,1 +1,0 @@
-Untuk mencari respon satuan langkah, kalikan fungsi transfer dengan langkah amplitudo X0 (X0/s) dan selesaikan dengan mencari transformasi invers dalam tabel Transformasi Laplace (Eksponensial) Catatan: Ingat bahwa v(t) secara implisit nol untuk t<0 (yaitu, dikalikan dengan fungsi langkah satuan).

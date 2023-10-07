@@ -1,1 +1,0 @@
-Seberapa jauh di luar angkasa satelit? Ketinggian bervariasi sesuai dengan jenis satelit. * Satelit Orbit Bumi Rendah memiliki ketinggian hingga 1240 mil atau 2000 km. * Satelit Orbit Bumi Menengah cocok antara ketinggian satelit Orbit Bumi Rendah dan Tinggi. * Satelit Orbit Bumi Tinggi di atas 22240 mil atau 35786 km.

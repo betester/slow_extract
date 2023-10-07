@@ -1,1 +1,0 @@
- CC berarti Carbon Copy, jika menggunakan kolom ini (berlawanan dengan BCC), penerima akan melihat siapa lagi yang disalin di email/pesan. Itu berarti salinan karbon buta.

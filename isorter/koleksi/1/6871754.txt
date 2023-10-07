@@ -1,1 +1,0 @@
-1 Jika file gambar Anda belum menjadi file JPEG, mengubah ekstensi file dapat merusak file Anda. Lihat metode lain jika Anda berharap untuk mengubah file gambar yang berbeda menjadi file JPEG. Ekstensi file tidak peka huruf besar/kecil. .JPG dan .jpg adalah hal yang sama.

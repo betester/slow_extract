@@ -1,1 +1,0 @@
-Kita mulai dengan y = sin x. Ini memiliki amplitudo `= 1` dan periode `= 2pi`. Sekarang mari kita lihat grafik y = 5 sin x. Kali ini kita memiliki amplitudo = 5 dan periode = 2 . (Saya telah menggunakan skala yang berbeda pada sumbu y.). Dan sekarang untuk y = 10 sin x. Amplitudo = 10 dan periode = 2 .

@@ -1,1 +1,0 @@
-Runout adalah hubungan antara permukaan dengan permukaan datum atau permukaan dengan sumbu datum. Ketika datum adalah permukaan, setiap putaran pada permukaan datum dapat berdampak pada runout bagian, tergantung pada apakah titik tinggi dan rendah pada datum sesuai dengan titik tinggi dan rendah pada fitur referensi.

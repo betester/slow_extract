@@ -1,1 +1,0 @@
-Rem parkir elektromekanis. Rem parkir elektromekanis terdiri dari fungsi rem parkir, alat bantu start-off, dan pengereman darurat. Ini diaktifkan dengan menarik tuas di konsol tengah, yang menggantikan tuas rem tangan konvensional. Saat Anda berkendara - asalkan sabuk pengaman pengemudi terpasang - rem parkir dilepaskan secara otomatis.

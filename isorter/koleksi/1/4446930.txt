@@ -1,1 +1,0 @@
-Anda dapat menggunakan perintah ping untuk: 1 Ping komputer Anda (berdasarkan alamat, bukan nama host) untuk menentukan bahwa TCP/IP berfungsi. (2 Ping komputer Anda tidak memverifikasi bahwa adaptor jaringan Anda berfungsi.). 3 Ping router lokal untuk menentukan apakah router sedang berjalan. 4 Ping di luar router lokal Anda.

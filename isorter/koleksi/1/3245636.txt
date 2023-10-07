@@ -1,1 +1,0 @@
-Tampilan: Membuka definisi tampilan saat ini dalam solusi default. Tampilan Sistem Baru: Membuka jendela baru untuk membuat tampilan baru untuk entitas saat ini dalam solusi default. Kustomisasi Entitas: Membawa Anda ke definisi entitas saat ini dalam solusi default di mana Anda kemudian dapat memilih Tampilan.

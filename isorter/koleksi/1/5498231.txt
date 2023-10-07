@@ -1,1 +1,0 @@
-Salah satu caranya adalah dengan menghilangkan jumlah duplikat dan mengecek hitungannya dan cara lainnya adalah dengan tabel pivot, namun pada kedua metode tersebut, laporan ringkasan yang melibatkan banyak kolom tidak dapat dibuat, karena pivot tabel akan menghitung jumlah sel yang tidak kosong, bukan sel unik.

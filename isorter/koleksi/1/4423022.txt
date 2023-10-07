@@ -1,1 +1,0 @@
-Seperti yang dinyatakan sebelumnya, Meraki tampaknya tidak dapat menambahkan 192.168.2.10 ke aturan penerusan port di firewall. Saya akan mencoba mengatur router pfsense secara internal, dan melalui penggunaan VLAN untuk membuat router pfsense berada di dua subnet yang berbeda.

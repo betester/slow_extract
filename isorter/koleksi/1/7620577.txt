@@ -1,1 +1,0 @@
-Metode pelabuhan aman dapat mengkonfirmasi status karyawan yang ada dan menentukan status karyawan baru, musiman, dan jam variabel. Jika majikan mempekerjakan seorang karyawan dan tidak yakin apakah karyawan tersebut akan bekerja penuh waktu, karyawan tersebut akan dianggap sebagai karyawan dengan jam kerja variabel.

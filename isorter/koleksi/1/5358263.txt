@@ -1,1 +1,0 @@
-Ketika :b1 bukan nol, saya pikir #3 akan memiliki rencana/kinerja eksekusi yang sama dengan #2 (yang berkinerja terbaik) karena pengoptimal akan mengoptimalkan bagian :b1 adalah nol dan petunjuk kardinalitas akan memberi tahu bahwa SELECT mengembalikan 3 nilai yang sama dengan memasukkan 3 nilai ke dalam daftar IN, seperti pada #2.

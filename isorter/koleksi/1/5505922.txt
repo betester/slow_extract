@@ -1,1 +1,0 @@
-Garis. Bagian Streak baru. Streak ada di setiap profil pengguna dan digunakan untuk melacak kapan mereka aktif dan hari apa pengguna aktif di Khan Academy. Jika pengguna aktif selama beberapa hari berturut-turut, itu disebut Streak.

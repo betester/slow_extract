@@ -1,1 +1,0 @@
-A. Tergantung bagaimana transaksi EDI disampaikan dan oleh siapa. Jika Anda mengajukan melalui clearinghouse, penyedia tidak perlu menandatangani perjanjian mitra dagang khusus dengan Group Health. Kesepakatan Anda akan langsung dengan clearinghouse.

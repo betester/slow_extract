@@ -1,1 +1,0 @@
-Mikrofluida aktif mengacu pada manipulasi fluida kerja yang ditentukan oleh komponen aktif (mikro) seperti pompa mikro atau katup mikro. Pompa mikro memasok cairan secara terus menerus atau digunakan untuk pemberian dosis. Katup mikro menentukan arah aliran atau mode pergerakan cairan yang dipompa.

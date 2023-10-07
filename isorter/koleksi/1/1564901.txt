@@ -1,1 +1,0 @@
-Pengantar Inferensi Statistik Floyd Bullard Pendahuluan Contoh 1 Contoh 2 Contoh 3 Contoh 4 Kesimpulan Contoh 3 (lanjutan) Ingat bahwa distribusi normal adalah fungsi kerapatan peluang kontinu (pdf), jadi peluang mengamati bilangan apa pun secara tepat adalah, secara teknis, 0. Tapi ini

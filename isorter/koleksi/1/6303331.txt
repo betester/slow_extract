@@ -1,1 +1,0 @@
-Mari kita periksa kemiringan potret fase. Kemiringan lintasan fase yang melalui suatu titik (x1, x 2) ditentukan oleh (,)(,)1 1 22 1 212f x xf x xdxdx = (2.5) dimana f1, f 2 diasumsikan sebagai fungsi bernilai tunggal . Ini menyiratkan bahwa lintasan fase tidak akan berpotongan.

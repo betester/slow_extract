@@ -1,1 +1,0 @@
-Apa itu LTE-M? LTE-M adalah singkatan dari LTE Cat-M1 atau Long Term Evolution (4G), kategori M1. Teknologi ini agar perangkat Internet of Things dapat terhubung langsung ke jaringan 4G, tanpa gateway dan menggunakan baterai. Itu lebih murah.

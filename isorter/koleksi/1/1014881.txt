@@ -1,1 +1,0 @@
-Contoh perangkat yang menerima daya 802.3af dan Cisco: Contoh perangkat yang hanya menerima daya 802.3af: Adanya port Ethernet gigabit pada perangkat yang dialiri daya merupakan indikator yang jelas bahwa perangkat tersebut hanya 802.3af. Karena PoE+ relatif baru, hanya sedikit perangkat yang memerlukan tingkat daya ini.

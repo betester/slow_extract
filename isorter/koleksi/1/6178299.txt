@@ -1,1 +1,0 @@
-Latar belakang singkat: CC (atau Sentimeter Kubik) adalah ukuran perpindahan satuan sedangkan HP (atau Tenaga Kuda) adalah ukuran energi yang diberikan yang juga merupakan fungsi dari Torsi dan RPM ( Revolusi per menit). Meskipun keduanya sering disalahartikan, tidak ada konversi langsung dari CC ke HP.

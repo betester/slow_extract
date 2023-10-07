@@ -1,1 +1,0 @@
-Simpangan baku populasi dihitung menggunakan =STDEV(VALUES) dan dalam hal ini perintahnya adalah =STDEV(A2:A6) yang menghasilkan jawaban 0,55. Simpangan baku sampel akan selalu lebih besar dari simpangan baku populasi bila dihitung untuk kumpulan data yang sama.

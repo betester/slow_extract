@@ -1,1 +1,0 @@
-Contoh ini menggunakan kotak pesan untuk menampilkan nilai dalam sel aktif. Karena properti ActiveCell gagal jika lembar aktif bukan lembar kerja, contoh mengaktifkan Sheet1 sebelum menggunakan properti ActiveCell. Contoh ini mengubah pemformatan font untuk sel aktif.

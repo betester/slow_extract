@@ -1,1 +1,0 @@
-Orang-orang sedang membangun model relasional dari proyek tertentu, bahkan jika tujuannya adalah untuk diimplementasikan pada database hierarkis atau jaringan. Ini berkembang menjadi apa yang saya pelajari sebagai pemodelan konseptual, dan itu mungkin yang Anda pelajari sebagai pemodelan konseptual juga.

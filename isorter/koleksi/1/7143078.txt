@@ -1,1 +1,0 @@
-Jadi dalam contoh buletin, jika Anda membagi paragraf tempat gambar ditambatkan menjadi dua paragraf, jangkar tersebut kemudian dilampirkan ke paragraf kedua. Anda ingin grafik diposisikan relatif terhadap paragraf pertama, sehingga Anda dapat menyeret jangkar tanpa memindahkan gambar.

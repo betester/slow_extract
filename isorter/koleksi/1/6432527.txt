@@ -1,1 +1,0 @@
-Analisis kutipan. Analisis kutipan adalah pemeriksaan frekuensi, pola, dan grafik kutipan dalam dokumen. Ini menggunakan pola kutipan, tautan dari satu dokumen ke dokumen lain, untuk mengungkapkan properti dokumen. Tujuan tipikal adalah untuk mengidentifikasi dokumen paling penting dalam koleksi.

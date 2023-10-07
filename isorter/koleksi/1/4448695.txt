@@ -1,1 +1,0 @@
-Tentukan panjang tali yang Anda butuhkan sebelum berangkat dan membeli terlalu sedikit. Tergantung pada situasi dok Anda, ada tiga jenis simpul halangan yang dapat Anda ikat untuk mengamankan perahu Anda ke stasiun dok. Tiga jenis simpul adalah halangan cengkeh, halangan spar, dan simpul fender Lee.

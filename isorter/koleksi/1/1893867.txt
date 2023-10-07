@@ -1,1 +1,0 @@
-Karena tidak mendefinisikan kuantitas itu buruk, kuantitas sesedikit mungkin harus dibiarkan tidak terdefinisi. Dari semua besaran fisika, bilangan real adalah satu-satunya besaran yang benar-benar mendasar dan tidak dapat ditentukan. [2] Besaran fisis skalar lainnya dapat dan harus didefinisikan sebagai bilangan real (karena tidak ada alternatif yang baik).
