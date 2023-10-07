@@ -15,7 +15,7 @@ func (iih InvertedIndexHeap) Less(i, j int) bool {
 	termI, _, _ := iih[i].Current()
 	termJ, _, _ := iih[j].Current()
 	
-	return termI > termJ
+	return termI < termJ
 }
 
 func (iih InvertedIndexHeap) Swap(i, j int) {
@@ -40,9 +40,7 @@ func (iih *InvertedIndexHeap) Pop() any {
 
 	old := *iih
 	n := len(*iih) - 1
-	iterator := old[0]
-	old[0] = old[n]
-	old[n] = nil
+	iterator := old[n]
 	*iih = old[0 : n] 
 
 	return iterator

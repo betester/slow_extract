@@ -179,7 +179,7 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 			smallestIterator.IndexFile.Close()
 			continue
 		}
-
+		
 		if smallestTerm < nextSmallestTerm {
 			mergedPostingList := utils.MergePostingLists(termPostingLists)
 			indexWriter.WriteIndex(smallestTerm, mergedPostingList)
@@ -191,7 +191,6 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 
 		heap.Push(invertedIndexHeap, smallestIterator)
 	}
-
 }
 
 func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uint32, error) {
@@ -231,6 +230,7 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 			for _, text := range texts {
 				mappedTerm := bsbi.TermId.ToUint32(text)
 				tdPair := make([]uint32, 2)
+				log.Println("original:", text, "mapped:", mappedTerm, "file:", filePath, "maped file:", mappedFilePath)
 				tdPair[0], tdPair[1] = mappedTerm, mappedFilePath
 				tdPairs = append(tdPairs, tdPair)
 			}
@@ -254,5 +254,6 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 		}
 		invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
 	}
+	log.Println(invertedIndex)	
 	return invertedIndex, nil
 }

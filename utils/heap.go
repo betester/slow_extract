@@ -20,7 +20,7 @@ func (spl SortedPostingListHeap) Less(i, j int) bool {
 	pi, pj := spl[i].Pointer, spl[j].Pointer
 	pli, plj := spl[i].PostingList, spl[j].PostingList
 
-	return pli[pi] > plj[pj]
+	return pli[pi] < plj[pj]
 }
 
 func (spl SortedPostingListHeap) Swap(i, j int) {
@@ -45,10 +45,8 @@ func (spl *SortedPostingListHeap) Pop() any {
 
 	old := *spl
 	n := len(*spl) - 1
-	iterator := old[0]
-	old[0] = old[n]
-	old[n] = nil
-	*spl = old[0:n]
+	iterator := old[n]
+	*spl = old[:n]
 
 	return iterator
 }

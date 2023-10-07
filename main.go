@@ -19,7 +19,13 @@ func main() {
 		},
 		IndexPath: "ci",
 	} 
+	
+	_, err := bsbi.CreateCollectionIndex("collections")
 
+	if err  != nil {
+		log.Println(err.Error())
+	}
+	// 
 	query := "kiamat"
 
 	result := bsbi.Search(query)
