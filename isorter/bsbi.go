@@ -103,7 +103,7 @@ func (bsbi *Bsbi) Search(query string) []string{
 	queryPostingList := make([][]uint32, 0)
 	
 	for iterator.HasNext() {
-		term, postingList, _ := iterator.Next()
+		term, _, postingList, _ := iterator.Next()
 		if slices.Contains(terms, term) {
 			queryPostingList = append(queryPostingList, postingList)
 		}
@@ -174,7 +174,7 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 		}
 
 		smallestIterator := smallestElement.(*index.InvertedIndexIterator)
-		nextSmallestTerm, smallestPostingList, err := smallestIterator.Next()
+		nextSmallestTerm, _, smallestPostingList, err := smallestIterator.Next()
 		if err != nil {
 			log.Println(err.Error())
 			smallestIterator.IndexFile.Close()

@@ -22,7 +22,7 @@ func TestInvertedIndex(t *testing.T) {
 	mappedIndex := make(map[uint32][]uint32)	
 
 	for iterator.HasNext() {
-		term, postingList, err := iterator.Next()
+		term,_, postingList, err := iterator.Next()
 
 		if err != nil {
 			t.Errorf(err.Error())

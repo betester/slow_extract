@@ -12,8 +12,8 @@ func (iih InvertedIndexHeap) Len() int{
 }
 
 func (iih InvertedIndexHeap) Less(i, j int) bool {
-	termI, _, _ := iih[i].Current()
-	termJ, _, _ := iih[j].Current()
+	termI,_, _, _ := iih[i].Current()
+	termJ,_, _, _ := iih[j].Current()
 	
 	return termI < termJ
 }

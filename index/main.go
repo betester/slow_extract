@@ -21,11 +21,11 @@ func (iii *InvertedIndexIterator) HasNext() bool {
 	return iii.Index < len(iii.Terms)
 }
 
-func (iii *InvertedIndexIterator) Current() (uint32, []uint32, error){
+func (iii *InvertedIndexIterator) Current() (uint32, uint32, []uint32, error){
 
 	if iii.HasNext() {
 		term := iii.Terms[iii.Index]
-		offset, byteLength := iii.PostingListMap[term][0], iii.PostingListMap[term][2]
+		offset, docFreq, byteLength := iii.PostingListMap[term][0], iii.PostingListMap[term][1] ,iii.PostingListMap[term][2]
 		encodedPostingList := make([]byte, byteLength)
 
 		if _, err := iii.IndexFile.Seek(int64(offset), 0); err != nil {
@@ -37,18 +37,18 @@ func (iii *InvertedIndexIterator) Current() (uint32, []uint32, error){
 		}
 		decodedPostingList := iii.Decoder.Decode(encodedPostingList)
 
-		return term, decodedPostingList, nil
+		return term, docFreq, decodedPostingList, nil
 	}
 	
 	iii.IndexFile.Close()
-	return 0, nil, fmt.Errorf("end of iterator") 
+	return 0, 0, nil, fmt.Errorf("end of iterator") 
 } 
 
-func (iii * InvertedIndexIterator) Next() (uint32, []uint32, error) {
-	term, decodedPostingList, err := iii.Current()
+func (iii * InvertedIndexIterator) Next() (uint32, uint32, []uint32, error) {
+	term, docFreq, decodedPostingList, err := iii.Current()
 	iii.Index++
 
-	return term, decodedPostingList, err
+	return term,docFreq, decodedPostingList, err
 }
 
 type InvertedIndex struct {
