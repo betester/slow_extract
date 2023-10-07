@@ -43,7 +43,7 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) (*index.InvertedI
 
 	tqdm.With(Strings(blockPaths), "Iterating Collections", func(v interface{}) (brk bool) {
 		blockPath := v.(string)
-		invertedIndex, err := bsbi.parseBlock(collectionPath, blockPath)
+		invertedIndex, termFrequencies, err := bsbi.parseBlock(collectionPath, blockPath)
 
 		if err != nil {
 			iterationError = err
@@ -53,7 +53,7 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) (*index.InvertedI
 		indicesName = append(indicesName, indexName)
 		indexWriter := index.InvertedIndex{}
 		indexWriter.Init(indexName, bsbi.IndexPath)
-		if err := indexWriter.Write(invertedIndex); err != nil {
+		if err := indexWriter.Write(invertedIndex, termFrequencies); err != nil {
 			iterationError = err
 			return true
 		}
@@ -163,18 +163,21 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 
 	termPostingLists := make([][]uint32, 0)
 	var smallestTerm uint32 = 0
+	var currentTermFrequency uint32 = 0
 
 	for {
 		smallestElement := heap.Pop(invertedIndexHeap)
 		switch smallestElement.(type) {
 		case error:
+			// there might be a case where termPostingLists isn't merged
 			indexWriter.CloseIndex()
 			indexWriter.WriteMetadata()
 			return indexWriter.Iterator(), nil
 		}
 
 		smallestIterator := smallestElement.(*index.InvertedIndexIterator)
-		nextSmallestTerm, _, smallestPostingList, err := smallestIterator.Next()
+		nextSmallestTerm, termFrequency , smallestPostingList, err := smallestIterator.Next()
+		
 		if err != nil {
 			log.Println(err.Error())
 			smallestIterator.IndexFile.Close()
@@ -183,11 +186,12 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 
 		if smallestTerm < nextSmallestTerm {
 			mergedPostingList := utils.MergePostingLists(termPostingLists)
-			indexWriter.WriteIndex(smallestTerm, mergedPostingList)
+			indexWriter.WriteIndex(smallestTerm, currentTermFrequency, mergedPostingList)
 			termPostingLists = make([][]uint32, 0)
+			currentTermFrequency = 0
 			smallestTerm = nextSmallestTerm
 		}
-
+		currentTermFrequency += termFrequency
 		termPostingLists = append(termPostingLists, smallestPostingList)
 
 		heap.Push(invertedIndexHeap, smallestIterator)
@@ -195,14 +199,15 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 
 }
 
-func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uint32, error) {
+func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uint32, map[uint32]uint32, error) {
 	fullBlockPath := fmt.Sprintf("%s/%s", collectionPath, blockPath)
 	blockFolder, err := os.Open(fullBlockPath)
 	invertedIndex := make(map[uint32][]uint32)
+	termFrequencies := make(map[uint32]uint32)
 	tdPairs := make([][]uint32, 0)
 
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	defer blockFolder.Close()
@@ -210,7 +215,7 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 	filePaths, err := blockFolder.Readdirnames(0)
 
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	tqdm.With(Strings(filePaths), "Iterating text files", func(v interface{}) (brk bool) {
@@ -252,9 +257,11 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 	for _, tdPair := range tdPairs {
 		if _, ok := invertedIndex[tdPair[0]]; !ok {
 			invertedIndex[tdPair[0]] = make([]uint32, 0)
-				invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
+			termFrequencies[tdPair[0]] = 0
 		}
-
+		
+		termFrequencies[tdPair[0]] += 1
 		n := uint32(len(invertedIndex[tdPair[0]]))
 
 		if (n > 0 && invertedIndex[tdPair[0]][n-1] != tdPair[1]) {
@@ -262,5 +269,5 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 		}
 
 	}
-	return invertedIndex, nil
+	return invertedIndex, termFrequencies, nil
 }

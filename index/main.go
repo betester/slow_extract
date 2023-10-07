@@ -58,12 +58,14 @@ type InvertedIndex struct {
 	encoder compressor.PostingListCompressor
 	terms []uint32
 	postingListMap map[uint32][]uint32
+	termFrequencies map[uint32]uint32
 	currentOffset uint32
 }
 
 type invertedIndexMetadata struct {
 	Terms []uint32
 	PostingListMap map[uint32][]uint32 
+	TermFrequencies map[uint32]uint32
 }
 
 func (ii *InvertedIndex) openMetadata() invertedIndexMetadata{
@@ -116,7 +118,7 @@ func (ii *InvertedIndex) WriteMetadata() error {
 	defer metadataFile.Close()
 	defer log.Println("Metadata closed")
 
-	metadata := invertedIndexMetadata{Terms: ii.terms, PostingListMap: ii.postingListMap}
+	metadata := invertedIndexMetadata{Terms: ii.terms, PostingListMap: ii.postingListMap, TermFrequencies: ii.termFrequencies}
 	metadataEncoder := json.NewEncoder(metadataFile)
 	return metadataEncoder.Encode(metadata)	
 }
@@ -130,6 +132,7 @@ func (ii *InvertedIndex) Init(indexName, indexPath string) {
 	ii.indexPath = indexPath
 	ii.encoder = compressor.PostingListCompressor{Compress: &compressor.VariableByteEncoder{}}	
 	ii.terms = make([]uint32, 0)
+	ii.termFrequencies = make(map[uint32]uint32)
 	ii.postingListMap = make(map[uint32][]uint32)
 
 	err := os.Mkdir(indexPath, 0750)
@@ -168,7 +171,7 @@ func (ii *InvertedIndex) Delete() error {
 	return os.Remove(indexFilePath)
 }
 
-func (ii *InvertedIndex) WriteIndex(term uint32, postingList []uint32) error {
+func (ii *InvertedIndex) WriteIndex(term, termFrequency uint32, postingList []uint32) error {
 	encodedPostingList := ii.encoder.Encode(postingList) 
 
 	if _,err := ii.indexFile.Write(encodedPostingList); err != nil {
@@ -176,6 +179,7 @@ func (ii *InvertedIndex) WriteIndex(term uint32, postingList []uint32) error {
 	}
 
 	ii.postingListMap[term] = make([]uint32, 0)
+	ii.termFrequencies[term] = termFrequency 
 	ii.postingListMap[term] = append(ii.postingListMap[term], ii.currentOffset)
 	ii.postingListMap[term] = append(ii.postingListMap[term], uint32(len(postingList)))
 	ii.postingListMap[term] = append(ii.postingListMap[term], uint32(len(encodedPostingList)))
@@ -185,7 +189,7 @@ func (ii *InvertedIndex) WriteIndex(term uint32, postingList []uint32) error {
 	return nil
 }
 
-func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32) error {
+func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32, termFrequencies map[uint32]uint32) error {
 
 	var maxTerm uint32 = 0
 	for term := range mappedDoc {
@@ -198,7 +202,7 @@ func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32) error {
 
 	for i <= maxTerm {
 		if val, ok := mappedDoc[i]; ok {
-			if err := ii.WriteIndex(i, val); err != nil {
+			if err := ii.WriteIndex(i, termFrequencies[i],val); err != nil {
 				return err
 			}	
 		}

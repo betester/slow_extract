@@ -4,8 +4,10 @@ import (
 	"log"
 	"testing"
 
+	"github.com/RadhiFadlillah/go-sastrawi"
 	"github.com/slow_extract/isorter"
 	"github.com/slow_extract/mapper"
+	"github.com/slow_extract/stemmer"
 )
 
 func TestBsbi(t *testing.T) {
@@ -19,12 +21,17 @@ func TestBsbi(t *testing.T) {
 			MapOfId:  map[string]uint32{},
 		},
 		IndexPath: ".tmp",
+		Stemmer: &stemmer.SastrawiStemmer{Dictionary: sastrawi.DefaultDictionary()},
 	}
 
-	_, err := bsbi.CreateCollectionIndex("koleksi")
+	iterator , err := bsbi.CreateCollectionIndex("koleksi")
 	if err != nil {
 		log.Println(err)
-	} 
+	}
+
+	for iterator.HasNext() {
+		log.Println(iterator.Next())
+	}
 
 	result := bsbi.Search("bebek")
 	for _, file := range result {

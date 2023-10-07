@@ -12,10 +12,14 @@ func TestInvertedIndex(t *testing.T) {
 	mappedDocument[1] = append(mappedDocument[1], 3, 5, 8, 10)
 	mappedDocument[2] = make([]uint32, 0)
 	mappedDocument[2] = append(mappedDocument[2], 1, 3, 5, 7)
+	
+	termFrequencies := make(map[uint32]uint32)
+	termFrequencies[1] = 10
+	termFrequencies[2] = 3
 
 	invertedIndex := InvertedIndex{}
 	invertedIndex.Init("test", ".tmp")
-	invertedIndex.Write(mappedDocument)
+	invertedIndex.Write(mappedDocument, termFrequencies)
 
 	iterator := invertedIndex.Iterator()
 
