@@ -1,3 +1,5 @@
+github.com/RadhiFadlillah/go-sastrawi v0.0.0-20200621225627-3dd6e0e1ac00 h1:sGEvvZR0jKvTYsVb0jX6GL+RpvBFi5Z+fOG+C9TbbXU=
+github.com/RadhiFadlillah/go-sastrawi v0.0.0-20200621225627-3dd6e0e1ac00/go.mod h1:UPMB2skn0VbyZtlEkXu7WZ/0LejMaaSOdBIhdfxVSEc=
 github.com/sbwhitecap/tqdm v0.0.0-20170314014342-7929e3102f57 h1:0F+ss24sMnPKMm+fJXJpwmrcpDk76yvtxCL9BEJ+vk4=
 github.com/sbwhitecap/tqdm v0.0.0-20170314014342-7929e3102f57/go.mod h1:Zar/p+P2WHOQZA0YXYjQY/YrdySIyeC1d6tph8HW0DE=
 golang.org/x/exp v0.0.0-20231006140011-7918f672742d h1:jtJma62tbqLibJ5sFQz8bKtEM8rJBtfilJ2qTU199MI=

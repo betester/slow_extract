@@ -7,12 +7,12 @@ import (
 	"log"
 	"os"
 	"sort"
-	"strings"
 
 	"github.com/sbwhitecap/tqdm"
 	. "github.com/sbwhitecap/tqdm/iterators"
 	"github.com/slow_extract/index"
 	"github.com/slow_extract/mapper"
+	"github.com/slow_extract/stemmer"
 	"github.com/slow_extract/utils"
 	"golang.org/x/exp/slices"
 )
@@ -21,6 +21,7 @@ type Bsbi struct {
 	TermId    mapper.Id
 	FileId    mapper.Id
 	IndexPath string
+	Stemmer stemmer.Stemmer 	
 }
 
 func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) (*index.InvertedIndexIterator, error) {
@@ -77,7 +78,7 @@ func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) (*index.InvertedI
 }
 
 func (bsbi *Bsbi) Search(query string) []string{
-	queries := strings.Split(query, " ")
+	queries := bsbi.Stemmer.StemSentence(query)
 	terms := make([]uint32, 0)
 	termErr := bsbi.TermId.Load(bsbi.IndexPath, "term")	
 	fileErr := bsbi.FileId.Load(bsbi.IndexPath, "file")
@@ -226,7 +227,7 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 		mappedFilePath := bsbi.FileId.ToUint32(filePath)
 
 		for buffer.Scan() {
-			texts := strings.Split(buffer.Text(), " ")
+			texts :=  bsbi.Stemmer.StemSentence(buffer.Text())
 
 			for _, text := range texts {
 				mappedTerm := bsbi.TermId.ToUint32(text)

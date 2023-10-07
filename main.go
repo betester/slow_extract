@@ -3,8 +3,10 @@ package main
 import (
 	"log"
 
+	"github.com/RadhiFadlillah/go-sastrawi"
 	"github.com/slow_extract/isorter"
 	"github.com/slow_extract/mapper"
+	"github.com/slow_extract/stemmer"
 )
 
 func main() {
@@ -18,10 +20,10 @@ func main() {
 			MapOfId:  map[string]uint32{},
 		},
 		IndexPath: "ci",
+		Stemmer: &stemmer.SastrawiStemmer{Dictionary: sastrawi.DefaultDictionary()},
 	} 
 
-	query := "apa"
-
+	query := "risiko kesehatan bahaya"
 	result := bsbi.Search(query)
 	
 	for _, file := range result {
