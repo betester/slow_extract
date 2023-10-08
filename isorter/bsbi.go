@@ -185,7 +185,7 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 
 	termPostingLists := make([][]uint32, 0)
 	var smallestTerm uint32 = 0
-	var currentTermFrequency map[uint32]uint32
+	var currentTermFrequency map[uint32]uint32 = make(map[uint32]uint32)
 
 	for {
 		smallestElement := heap.Pop(invertedIndexHeap)
@@ -297,5 +297,7 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 		}
 
 	}
+
+	log.Println(termFrequencies, "hello")
 	return invertedIndex, termFrequencies, nil
 }

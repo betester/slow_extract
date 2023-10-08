@@ -51,6 +51,7 @@ func (iii * InvertedIndexIterator) Next() (uint32, uint32, []uint32, map[uint32]
 	iii.Index++
 
 	return term,docFreq, decodedPostingList, termFrequencies, err
+
 }
 
 type InvertedIndex struct {
@@ -95,6 +96,7 @@ func (ii *InvertedIndex) openMetadata() invertedIndexMetadata{
 		}
 	}
 	
+
 	log.Println("Metadata opened")
 	return metadata
 }
@@ -163,7 +165,7 @@ func (ii *InvertedIndex) Iterator() *InvertedIndexIterator {
 		PostingListMap: metadata.PostingListMap,
 		Decoder: ii.encoder,
 		IndexFile: ii.indexFile,
-		TermFrequencies: ii.termFrequencies,
+		TermFrequencies: metadata.TermFrequencies,
 	}
 } 
 
@@ -188,7 +190,6 @@ func (ii *InvertedIndex) WriteIndex(term uint32, termFrequency map[uint32]uint32
 	ii.postingListMap[term] = append(ii.postingListMap[term], uint32(len(encodedPostingList)))
 	ii.terms = append(ii.terms, term)
 	ii.currentOffset += uint32(len(encodedPostingList))
-	
 	return nil
 }
 
@@ -202,7 +203,7 @@ func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32, termFrequencies ma
 	}
 
 	var i uint32 = 0
-
+  
 	for i <= maxTerm {
 		if val, ok := mappedDoc[i]; ok {
 			if err := ii.WriteIndex(i, termFrequencies[i],val); err != nil {
