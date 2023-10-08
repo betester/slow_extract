@@ -12,6 +12,7 @@ import (
 type InvertedIndexIterator struct {
 	Terms []uint32
 	PostingListMap map[uint32][]uint32
+	TermFrequencies map[uint32]map[uint32]uint32
 	IndexFile *os.File
 	Index int
 	Decoder compressor.PostingListCompressor
@@ -21,11 +22,12 @@ func (iii *InvertedIndexIterator) HasNext() bool {
 	return iii.Index < len(iii.Terms)
 }
 
-func (iii *InvertedIndexIterator) Current() (uint32, uint32, []uint32, error){
+func (iii *InvertedIndexIterator) Current() (uint32, uint32, []uint32, map[uint32]uint32, error){
 
 	if iii.HasNext() {
 		term := iii.Terms[iii.Index]
 		offset, docFreq, byteLength := iii.PostingListMap[term][0], iii.PostingListMap[term][1] ,iii.PostingListMap[term][2]
+		termFreuencies := iii.TermFrequencies[term]
 		encodedPostingList := make([]byte, byteLength)
 
 		if _, err := iii.IndexFile.Seek(int64(offset), 0); err != nil {
@@ -37,18 +39,18 @@ func (iii *InvertedIndexIterator) Current() (uint32, uint32, []uint32, error){
 		}
 		decodedPostingList := iii.Decoder.Decode(encodedPostingList)
 
-		return term, docFreq, decodedPostingList, nil
+		return term, docFreq, decodedPostingList, termFreuencies, nil
 	}
 	
 	iii.IndexFile.Close()
-	return 0, 0, nil, fmt.Errorf("end of iterator") 
+	return 0, 0, nil, nil, fmt.Errorf("end of iterator") 
 } 
 
-func (iii * InvertedIndexIterator) Next() (uint32, uint32, []uint32, error) {
-	term, docFreq, decodedPostingList, err := iii.Current()
+func (iii * InvertedIndexIterator) Next() (uint32, uint32, []uint32, map[uint32]uint32, error) {
+	term, docFreq, decodedPostingList, termFrequencies, err := iii.Current()
 	iii.Index++
 
-	return term,docFreq, decodedPostingList, err
+	return term,docFreq, decodedPostingList, termFrequencies, err
 }
 
 type InvertedIndex struct {
@@ -58,14 +60,14 @@ type InvertedIndex struct {
 	encoder compressor.PostingListCompressor
 	terms []uint32
 	postingListMap map[uint32][]uint32
-	termFrequencies map[uint32]uint32
+	termFrequencies map[uint32]map[uint32]uint32
 	currentOffset uint32
 }
 
 type invertedIndexMetadata struct {
 	Terms []uint32
 	PostingListMap map[uint32][]uint32 
-	TermFrequencies map[uint32]uint32
+	TermFrequencies map[uint32]map[uint32]uint32
 }
 
 func (ii *InvertedIndex) openMetadata() invertedIndexMetadata{
@@ -132,7 +134,7 @@ func (ii *InvertedIndex) Init(indexName, indexPath string) {
 	ii.indexPath = indexPath
 	ii.encoder = compressor.PostingListCompressor{Compress: &compressor.VariableByteEncoder{}}	
 	ii.terms = make([]uint32, 0)
-	ii.termFrequencies = make(map[uint32]uint32)
+	ii.termFrequencies = make(map[uint32]map[uint32]uint32)
 	ii.postingListMap = make(map[uint32][]uint32)
 
 	err := os.Mkdir(indexPath, 0750)
@@ -161,6 +163,7 @@ func (ii *InvertedIndex) Iterator() *InvertedIndexIterator {
 		PostingListMap: metadata.PostingListMap,
 		Decoder: ii.encoder,
 		IndexFile: ii.indexFile,
+		TermFrequencies: ii.termFrequencies,
 	}
 } 
 
@@ -171,7 +174,7 @@ func (ii *InvertedIndex) Delete() error {
 	return os.Remove(indexFilePath)
 }
 
-func (ii *InvertedIndex) WriteIndex(term, termFrequency uint32, postingList []uint32) error {
+func (ii *InvertedIndex) WriteIndex(term uint32, termFrequency map[uint32]uint32, postingList []uint32) error {
 	encodedPostingList := ii.encoder.Encode(postingList) 
 
 	if _,err := ii.indexFile.Write(encodedPostingList); err != nil {
@@ -189,7 +192,7 @@ func (ii *InvertedIndex) WriteIndex(term, termFrequency uint32, postingList []ui
 	return nil
 }
 
-func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32, termFrequencies map[uint32]uint32) error {
+func (ii *InvertedIndex) Write(mappedDoc map[uint32][]uint32, termFrequencies map[uint32]map[uint32]uint32) error {
 
 	var maxTerm uint32 = 0
 	for term := range mappedDoc {

@@ -103,7 +103,7 @@ func (bsbi *Bsbi) Search(query string) []string{
 	queryPostingList := make([][]uint32, 0)
 	
 	for iterator.HasNext() {
-		term, _, postingList, _ := iterator.Next()
+		term, _, postingList, _, _ := iterator.Next()
 		if slices.Contains(terms, term) {
 			queryPostingList = append(queryPostingList, postingList)
 		}
@@ -157,13 +157,35 @@ func (bsbi *Bsbi) deleteIndices(indices []*index.InvertedIndex) {
 	}
 }
 
+func mergeTermFrequency(f1, f2 map[uint32]uint32) map[uint32]uint32 {
+	mergedTermFrequency := make(map[uint32]uint32)
+	
+	for k1,v1 := range f1 {
+		if v2, ok:= f2[k1]; ok {
+			mergedTermFrequency[k1] = v1 + v2 
+		} else {
+			mergedTermFrequency[k1] = v1
+		}
+
+	}
+	
+	for k2,v2 := range f2 {
+		if _, ok := mergedTermFrequency[k2]; !ok {
+			mergedTermFrequency[k2] = v2
+		}
+	}
+
+
+	return mergedTermFrequency 
+}
+
 func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.InvertedIndexIterator, error) {
 	indexWriter := index.InvertedIndex{}
 	indexWriter.Init("main", bsbi.IndexPath)
 
 	termPostingLists := make([][]uint32, 0)
 	var smallestTerm uint32 = 0
-	var currentTermFrequency uint32 = 0
+	var currentTermFrequency map[uint32]uint32
 
 	for {
 		smallestElement := heap.Pop(invertedIndexHeap)
@@ -176,7 +198,7 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 		}
 
 		smallestIterator := smallestElement.(*index.InvertedIndexIterator)
-		nextSmallestTerm, termFrequency , smallestPostingList, err := smallestIterator.Next()
+		nextSmallestTerm, _, smallestPostingList, nextTermFrequency, err := smallestIterator.Next()
 		
 		if err != nil {
 			log.Println(err.Error())
@@ -188,10 +210,11 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 			mergedPostingList := utils.MergePostingLists(termPostingLists)
 			indexWriter.WriteIndex(smallestTerm, currentTermFrequency, mergedPostingList)
 			termPostingLists = make([][]uint32, 0)
-			currentTermFrequency = 0
+			currentTermFrequency = make(map[uint32]uint32)
 			smallestTerm = nextSmallestTerm
 		}
-		currentTermFrequency += termFrequency
+
+		currentTermFrequency = mergeTermFrequency(currentTermFrequency, nextTermFrequency) 
 		termPostingLists = append(termPostingLists, smallestPostingList)
 
 		heap.Push(invertedIndexHeap, smallestIterator)
@@ -199,11 +222,11 @@ func (bsbi *Bsbi) mergeIndices(invertedIndexHeap heap.Interface) (*index.Inverte
 
 }
 
-func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uint32, map[uint32]uint32, error) {
+func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uint32, map[uint32]map[uint32]uint32, error) {
 	fullBlockPath := fmt.Sprintf("%s/%s", collectionPath, blockPath)
 	blockFolder, err := os.Open(fullBlockPath)
 	invertedIndex := make(map[uint32][]uint32)
-	termFrequencies := make(map[uint32]uint32)
+	termFrequencies := make(map[uint32]map[uint32]uint32)
 	tdPairs := make([][]uint32, 0)
 
 	if err != nil {
@@ -258,10 +281,15 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 		if _, ok := invertedIndex[tdPair[0]]; !ok {
 			invertedIndex[tdPair[0]] = make([]uint32, 0)
 			invertedIndex[tdPair[0]] = append(invertedIndex[tdPair[0]], tdPair[1])
-			termFrequencies[tdPair[0]] = 0
+			termFrequencies[tdPair[0]] = make(map[uint32]uint32)
 		}
-		
-		termFrequencies[tdPair[0]] += 1
+
+		if _, ok := termFrequencies[tdPair[0]][tdPair[1]]; !ok {
+			termFrequencies[tdPair[0]][tdPair[1]] = 0
+		}
+
+		termFrequencies[tdPair[0]][tdPair[1]] +=1 
+
 		n := uint32(len(invertedIndex[tdPair[0]]))
 
 		if (n > 0 && invertedIndex[tdPair[0]][n-1] != tdPair[1]) {
