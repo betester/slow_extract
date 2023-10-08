@@ -7,6 +7,7 @@ import (
 	"github.com/RadhiFadlillah/go-sastrawi"
 	"github.com/slow_extract/isorter"
 	"github.com/slow_extract/mapper"
+	"github.com/slow_extract/search"
 	"github.com/slow_extract/stemmer"
 )
 
@@ -33,6 +34,10 @@ func TestBsbi(t *testing.T) {
 		log.Println(iterator.Next())
 	}
 
+	bsbi.SearchQuery = &search.CosineSearch{
+		K:2,
+
+	}
 	result := bsbi.Search("bebek")
 	for _, file := range result {
 		log.Println(file)

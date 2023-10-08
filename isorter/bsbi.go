@@ -12,9 +12,9 @@ import (
 	. "github.com/sbwhitecap/tqdm/iterators"
 	"github.com/slow_extract/index"
 	"github.com/slow_extract/mapper"
+	"github.com/slow_extract/search"
 	"github.com/slow_extract/stemmer"
 	"github.com/slow_extract/utils"
-	"golang.org/x/exp/slices"
 )
 
 type Bsbi struct {
@@ -22,6 +22,7 @@ type Bsbi struct {
 	FileId    mapper.Id
 	IndexPath string
 	Stemmer stemmer.Stemmer 	
+	SearchQuery search.SearchQuery
 }
 
 func (bsbi *Bsbi) CreateCollectionIndex(collectionPath string) (*index.InvertedIndexIterator, error) {
@@ -82,7 +83,7 @@ func (bsbi *Bsbi) Search(query string) []string{
 	terms := make([]uint32, 0)
 	termErr := bsbi.TermId.Load(bsbi.IndexPath, "term")	
 	fileErr := bsbi.FileId.Load(bsbi.IndexPath, "file")
-
+	filePositions := make([]string, 0)
 	if termErr != nil {
 		panic(termErr)
 	}
@@ -99,30 +100,10 @@ func (bsbi *Bsbi) Search(query string) []string{
 		terms = append(terms, bsbi.TermId.ToUint32(q))
 	}
 
-	iterator := mainIndex.Iterator()
-	queryPostingList := make([][]uint32, 0)
 	
-	for iterator.HasNext() {
-		term, _, postingList, _, _ := iterator.Next()
-		if slices.Contains(terms, term) {
-			queryPostingList = append(queryPostingList, postingList)
-		}
-	}
+	searchResult :=  bsbi.SearchQuery.Search(terms)
 
-	intersectedPostingList := make([]uint32, 0)	
-	filePositions := make([]string, 0)
-	
-	if len(queryPostingList) == 0 {
-		return filePositions 
-	}
-
-	intersectedPostingList = append(intersectedPostingList, queryPostingList[0]...)
-	
-	for i:=1; i < len(queryPostingList); i++ {
-		intersectedPostingList = findPostingListIntersection(intersectedPostingList, queryPostingList[i])
-	}
-
-	for _, fileId := range intersectedPostingList {
+	for _, fileId := range searchResult{
 		str, err := bsbi.FileId.ToString(fileId)
 		if err != nil {
 			continue
@@ -130,25 +111,6 @@ func (bsbi *Bsbi) Search(query string) []string{
 		filePositions = append(filePositions,str)
 	}	
 	return filePositions
-}
-func findPostingListIntersection(pl1, pl2 []uint32) []uint32 {
-	p1, p2 := 0, 0
-	intersectedPl := make([]uint32, 0)	
-
-	for p1 < len(pl1) && p2 < len(pl2) {
-
-		if pl1[p1] == pl2[p2] {
-			intersectedPl=  append(intersectedPl, pl1[p1])	
-			p1++
-			p2++
-		} else if pl1[p1] > pl2[p2] {
-			p2++
-		} else {
-			p1++
-		}
-	}
-
-	return intersectedPl
 }
 
 func (bsbi *Bsbi) deleteIndices(indices []*index.InvertedIndex) {
@@ -298,6 +260,5 @@ func (bsbi *Bsbi) parseBlock(collectionPath, blockPath string) (map[uint32][]uin
 
 	}
 
-	log.Println(termFrequencies, "hello")
 	return invertedIndex, termFrequencies, nil
 }
